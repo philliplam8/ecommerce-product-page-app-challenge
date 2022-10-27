@@ -1,3 +1,5 @@
 import Product from "./Product";
+import ProductDetails from "./ProductDetails";
+import styles from "./Product.module.css";
 
-export { Product };
+export { Product, ProductDetails, styles };

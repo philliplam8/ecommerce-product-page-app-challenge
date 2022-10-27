@@ -38,7 +38,7 @@ export default function Nav() {
             <button onClick={handleCartClick}>
               <Image
                 src={"/images/icon-cart.svg"}
-                alt={"Shopping Cart"}
+                alt={"View Shopping Cart"}
                 width={22}
                 height={20}
                 className={`${
