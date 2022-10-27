@@ -10,7 +10,7 @@ export default function NavLink(props: NavItem) {
     <Link
       href={props.link}
       className={
-        "h-full flex hover:m-0 items-center border-b-4 border-white hover:border-orange hover:text-black"
+        "h-full flex items-center text-sm border-b-4 border-white hover:border-orange hover:text-black"
       }
     >
       {props.label}

@@ -3,7 +3,7 @@ import { CartContext } from "../../context/CartContext";
 
 function EmptyCart() {
   return (
-    <div className="h-full w-full flex justify-center items-center">
+    <div className="h-full w-full flex justify-center items-center py-24">
       <h3 className="text-darkGrayishBlue">Your cart is empty.</h3>
     </div>
   );
@@ -14,7 +14,7 @@ export default function ShoppingCart(props: { status: boolean }) {
 
   return (
     <div
-      className={`w-full sm:w-[250px] h-[200px] bg-white
+      className={`w-full sm:w-[300px] h-full bg-white rounded-lg
       ${props.status ? "visible" : "invisible"}`}
     >
       <div className="h-full flex flex-col font-bold text-sm rounded-lg shadow-2xl z-10">

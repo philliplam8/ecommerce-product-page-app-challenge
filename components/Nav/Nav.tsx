@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import NavLink from "./NavLink";
+import { NavLink, styles } from "./";
 import { ShoppingCart } from "../ShoppingCart";
 
 export default function Nav() {
@@ -41,6 +41,9 @@ export default function Nav() {
                 alt={"Shopping Cart"}
                 width={22}
                 height={20}
+                className={`${
+                  showShoppingCart ? styles.filterActive : styles.filter
+                }`}
               />
             </button>
           </div>
