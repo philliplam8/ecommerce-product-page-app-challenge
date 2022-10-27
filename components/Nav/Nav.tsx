@@ -44,15 +44,21 @@ export default function Nav() {
               />
             </button>
           </div>
-          <Image
-            src={"/images/image-avatar.png"}
-            alt={"Avatar Image"}
-            width={50}
-            height={50}
-          />
+          <button
+            className={
+              "hover:border-orange border-transparent border-2 rounded-[30px]"
+            }
+          >
+            <Image
+              src={"/images/image-avatar.png"}
+              alt={"Avatar Image"}
+              width={50}
+              height={50}
+            />
+          </button>
         </div>
       </nav>
-      <div className="absolute top-24 right-0">
+      <div className="absolute top-24 right-[-45px]">
         <ShoppingCart status={showShoppingCart} />
       </div>
     </div>
