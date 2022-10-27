@@ -1,9 +1,33 @@
+import { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import Image from "next/image";
 import { ProductDetails, styles } from "./";
 import { ProductItem } from "./types";
 import { Carousel } from "../Carousel";
 
 export default function Product(props: ProductItem) {
+  const [quantity, setQuantity] = useState(0);
+  const [cart, setCart] = useContext(CartContext);
+
+  const resetQuantity = () => {
+    setQuantity(0);
+  };
+
+  const handleIncrement = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const handleDecrement = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const handleAddShoppingCart = () => {
+    // After adding to cart, reset the quantity in the control display and state
+    resetQuantity();
+  };
+
   return (
     <div className="flex flex-col md:flex-row gap-10 justify-center mx-auto py-10">
       <Carousel />
@@ -17,18 +41,35 @@ export default function Product(props: ProductItem) {
           discount={props.discount}
         />
 
-        <div id="controls" className="flex flex-row">
+        <div id="controls" className="flex flex-col sm:flex-row gap-3">
           <div
             id="quantity"
-            className="flex flex-row items-center justify-center"
+            className="h-12 flex flex-row items-center justify-between rounded-lg bg-lightGrayishBlue"
           >
-            <button>-</button>
-            <div>Number</div>
-            <button>+</button>
+            <button className="p-4" onClick={handleDecrement}>
+              <Image
+                src={"/images/icon-minus.svg"}
+                alt={"Decrement quantity"}
+                width={10}
+                height={4}
+              />
+            </button>
+            <div className="px-4">
+              <p className="text-sm font-bold">{quantity}</p>
+            </div>
+            <button className="p-4" onClick={handleIncrement}>
+              <Image
+                src={"/images/icon-plus.svg"}
+                alt={"Increment quantity"}
+                width={10}
+                height={10}
+              />
+            </button>
           </div>
           <button
-            id="add"
-            className="flex justify-center items-center gap-4 w-60 h-12 bg-orange rounded-lg text-white text-sm font-bold"
+            id="addCart"
+            className="w-full sm:w-60 h-12 flex justify-center items-center gap-4 bg-orange rounded-lg text-white text-sm font-bold"
+            onClick={handleAddShoppingCart}
           >
             <Image
               src={"/images/icon-cart.svg"}

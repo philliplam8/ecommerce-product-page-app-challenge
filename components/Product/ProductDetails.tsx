@@ -12,14 +12,16 @@ export default function ProductDetails(props: ProductItem) {
         <p className="font-bold text-xs text-orange tracking-widest">
           {props.company.toLocaleUpperCase()}
         </p>
-        <h1 className="font-bold text-[2.5em]">{props.name}</h1>
+        <h1 className="font-bold text-[1.5em] md:text-[2.5em]">{props.name}</h1>
       </div>
 
-      <p className="text-darkGrayishBlue">{props.description}</p>
+      <p className="text-darkGrayishBlue text-[0.80em] sm:text-[1em]">
+        {props.description}
+      </p>
 
       <div
         id="price"
-        className="my-6 flex flex-row sm:flex-col justify-between"
+        className="my-6 flex flex-row md:flex-col justify-between"
       >
         <div className="flex flex-row gap-5 items-center">
           <h2 className="font-bold text-[1.75em]">{formatedDiscountPrice}</h2>
@@ -28,7 +30,7 @@ export default function ProductDetails(props: ProductItem) {
           </div>
         </div>
 
-        <div className="font-bold line-through text-darkGrayishBlue">
+        <div className="flex items-center font-bold line-through text-darkGrayishBlue">
           {formatedOriginalPrice}
         </div>
       </div>
