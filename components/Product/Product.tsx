@@ -2,10 +2,10 @@ import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import Image from "next/image";
 import { ProductDetails, styles } from "./";
-import { ProductItem } from "./types";
+import { CartItemDetails, ProductItemDetails } from "./types";
 import { Carousel } from "../Carousel";
 
-export default function Product(props: ProductItem) {
+export default function Product(props: ProductItemDetails) {
   const [quantity, setQuantity] = useState(0);
   const [cart, setCart] = useContext(CartContext);
 
@@ -24,8 +24,26 @@ export default function Product(props: ProductItem) {
   };
 
   const handleAddShoppingCart = () => {
-    // After adding to cart, reset the quantity in the control display and state
-    resetQuantity();
+    if (quantity > 0) {
+      const newCartItem: CartItemDetails = {
+        name: props.name,
+        originalPrice: props.originalPrice,
+        discount: props.discount,
+        quantity: quantity,
+      };
+
+      let newCart = { ...cart };
+      if (props.name in newCart) {
+        newCart[props.name].quantity += quantity;
+      } else {
+        newCart[props.name] = newCartItem;
+      }
+
+      setCart(newCart);
+
+      // After adding to cart, reset the quantity in the control display and state
+      resetQuantity();
+    }
   };
 
   return (
@@ -66,6 +84,7 @@ export default function Product(props: ProductItem) {
               />
             </button>
           </div>
+
           <button
             id="addCart"
             className="w-full sm:w-60 h-12 flex justify-center items-center gap-4 bg-orange rounded-lg text-white text-sm font-bold"
