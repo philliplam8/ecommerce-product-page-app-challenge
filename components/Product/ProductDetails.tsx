@@ -1,6 +1,6 @@
-import { ProductItem } from "./types";
+import { ProductItemDetails } from "./types";
 
-export default function ProductDetails(props: ProductItem) {
+export default function ProductDetails(props: ProductItemDetails) {
   const formatedOriginalPrice = `$${props.originalPrice}.00`;
   const formatedDiscountPrice = `$${
     (props.originalPrice * props.discount) / 100
