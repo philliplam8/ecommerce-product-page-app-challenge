@@ -26,13 +26,14 @@ export default function Home() {
         />
       </main>
 
-      <footer className="flex flex-row justify-center">
+      <footer className="flex flex-row justify-center text-xs">
         <p>
           Challenge by{" "}
           <a
             href="https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6"
             target="_blank"
             rel="noreferrer"
+            className="font-bold"
           >
             Frontend Mentor
           </a>
@@ -41,6 +42,7 @@ export default function Home() {
             href="https://github.com/philliplam8/ecommerce-product-page-app-challenge"
             target="_blank"
             rel="noreferrer"
+            className="font-bold"
           >
             Phillip Lam
           </a>
