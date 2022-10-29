@@ -11,7 +11,7 @@ export default function Nav() {
   };
 
   return (
-    <div className="flex flex-col relative">
+    <div className="sticky top-0 flex flex-col z-20 bg-white">
       <nav className="h-28 flex justify-between items-center border-b border-lightGray text-darkGrayishBlue">
         <div className="h-full flex flex-row gap-14">
           <Link href={"/"}>
