@@ -74,7 +74,7 @@ export default function ShoppingCart(props: { status: boolean }) {
         <div className="w-full flex items-center border-b border-lightGray py-5 px-4">
           <h3>Cart</h3>
         </div>
-        {cart.length === 0 ? <EmptyCart /> : <NonEmptyCart />}
+        {Object.keys(cart).length === 0 ? <EmptyCart /> : <NonEmptyCart />}
       </div>
     </div>
   );
