@@ -3,6 +3,7 @@ export interface ItemDetails {
   name: string;
   originalPrice: number;
   discount: number;
+  discountedPrice: number;
 }
 
 export interface CartItemDetails extends ItemDetails {

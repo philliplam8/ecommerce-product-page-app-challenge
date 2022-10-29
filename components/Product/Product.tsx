@@ -8,6 +8,7 @@ import { Carousel } from "../Carousel";
 export default function Product(props: ProductItemDetails) {
   const [quantity, setQuantity] = useState(0);
   const [cart, setCart] = useContext(CartContext);
+  const discountedPrice = (props.originalPrice * props.discount) / 100;
 
   const resetQuantity = () => {
     setQuantity(0);
@@ -30,6 +31,7 @@ export default function Product(props: ProductItemDetails) {
         originalPrice: props.originalPrice,
         discount: props.discount,
         quantity: quantity,
+        discountedPrice: discountedPrice,
       };
 
       let newCart = { ...cart };
@@ -57,6 +59,7 @@ export default function Product(props: ProductItemDetails) {
           description={props.description}
           originalPrice={props.originalPrice}
           discount={props.discount}
+          discountedPrice={discountedPrice}
         />
 
         <div id="controls" className="flex flex-col sm:flex-row gap-3">

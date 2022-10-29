@@ -12,15 +12,19 @@ function EmptyCart() {
 }
 
 function CartItem(props: CartItemDetails) {
-  const totalCost = props.originalPrice * props.quantity;
+  const totalCost = props.discountedPrice * props.quantity;
+  const finalPrice = `$${totalCost.toFixed(2)}`;
 
   return (
     <div className="w-full flex flex-row gap-2 justify-between font-medium">
       <div className="flex flex-row gap-2">
         <div>Image</div>
-        <div className="flex flex-col">
+        <div className="flex flex-col text-darkGrayishBlue">
           <h3>{props.name}</h3>
-          <p>Price x {props.quantity}</p>
+          <div className="flex flex-row gap-2">
+            <p>Price x {props.quantity}</p>
+            <p className="text-black font-bold">{finalPrice}</p>
+          </div>
         </div>
       </div>
       <div className="h-[16px]">
@@ -48,6 +52,7 @@ function NonEmptyCart() {
           originalPrice={cart[item].originalPrice}
           discount={cart[item].discount}
           quantity={cart[item].quantity}
+          discountedPrice={cart[item].discountedPrice}
         />
       ))}
       <button className="w-full h-12 rounded-lg text-white text-sm bg-orange">
