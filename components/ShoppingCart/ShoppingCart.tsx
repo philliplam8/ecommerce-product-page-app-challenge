@@ -12,8 +12,15 @@ function EmptyCart() {
 }
 
 function CartItem(props: CartItemDetails) {
+  const [cart, setCart] = useContext(CartContext);
   const totalCost = props.discountedPrice * props.quantity;
   const finalPrice = `$${totalCost.toFixed(2)}`;
+
+  const handleCartItemRemoval = () => {
+    let newCart = { ...cart };
+    delete newCart[props.name];
+    setCart(newCart);
+  };
 
   return (
     <div className="w-full flex flex-row gap-2 justify-between font-medium">
@@ -28,12 +35,14 @@ function CartItem(props: CartItemDetails) {
         </div>
       </div>
       <div className="h-[16px]">
-        <Image
-          src={"/images/icon-delete.svg"}
-          alt={"Remove from cart"}
-          width={14}
-          height={16}
-        />
+        <button onClick={handleCartItemRemoval}>
+          <Image
+            src={"/images/icon-delete.svg"}
+            alt={`Remove ${props.name} from cart`}
+            width={14}
+            height={16}
+          />
+        </button>
       </div>
     </div>
   );
