@@ -7,6 +7,11 @@ import { Product } from "../components/Product";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  // Demo Product Details
+  const originalPrice: number = 250;
+  const discount: number = 50;
+  const discountedPrice: number = (originalPrice * discount) / 100;
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,8 +26,9 @@ export default function Home() {
           company="Sneaker Company"
           name="Fall Limited Edition Sneakers"
           description="These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer."
-          originalPrice={250}
-          discount={50}
+          originalPrice={originalPrice}
+          discount={discount}
+          discountedPrice={discountedPrice}
         />
       </main>
 
