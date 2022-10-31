@@ -1,9 +1,10 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useMemo } from "react";
 import { CartContext } from "../../context/CartContext";
 import Link from "next/link";
 import Image from "next/image";
 import { NavLink, styles } from "./";
 import { ShoppingCart } from "../ShoppingCart";
+import { CartItemDetails } from "../Product/types";
 
 export default function Nav() {
   const [cart, setCart] = useContext(CartContext);
@@ -11,6 +12,14 @@ export default function Nav() {
   const handleCartClick = () => {
     setShowShoppingCart(!showShoppingCart);
   };
+
+  const cartAmount = useMemo(() => {
+    let amount = 0;
+    Object.values(cart).forEach((item: any) => {
+      amount += item.quantity;
+    });
+    return amount;
+  }, [cart]);
 
   return (
     <div className="sticky top-0 flex flex-col z-20 bg-white">
@@ -49,7 +58,7 @@ export default function Nav() {
           <div className="flex items-center">
             {Object.keys(cart).length > 0 && (
               <div className="absolute mb-4 ml-2.5 px-[7px] py-[0.75px]  bg-orange text-white text-[0.5em] rounded-xl z-30">
-                3
+                {cartAmount}
               </div>
             )}
 
