@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import Link from "next/link";
 import Image from "next/image";
 import { NavLink, styles } from "./";
 import { ShoppingCart } from "../ShoppingCart";
 
 export default function Nav() {
+  const [cart, setCart] = useContext(CartContext);
   const [showShoppingCart, setShowShoppingCart] = useState(false);
   const handleCartClick = () => {
     setShowShoppingCart(!showShoppingCart);
@@ -43,20 +45,29 @@ export default function Nav() {
           </ul>
         </div>
 
-        <div className="flex flex-row gap-10 items-center">
-          <div className="h-[20px] w-[22px]">
-            <button onClick={handleCartClick}>
-              <Image
-                src={"/images/icon-cart.svg"}
-                alt={"View Shopping Cart"}
-                width={22}
-                height={20}
-                className={`${
-                  showShoppingCart ? styles.filterActive : styles.filter
-                }`}
-              />
-            </button>
+        <div id="shopping-avatar" className="flex flex-row gap-10 items-center">
+          <div className="flex items-center">
+            {Object.keys(cart).length > 0 && (
+              <div className="absolute mb-4 ml-2.5 px-[7px] py-[0.75px]  bg-orange text-white text-[0.5em] rounded-xl z-30">
+                3
+              </div>
+            )}
+
+            <div className="h-[20px] w-[22px]">
+              <button onClick={handleCartClick}>
+                <Image
+                  src={"/images/icon-cart.svg"}
+                  alt={"View Shopping Cart"}
+                  width={22}
+                  height={20}
+                  className={`${
+                    showShoppingCart ? styles.filterActive : styles.filter
+                  }`}
+                />
+              </button>
+            </div>
           </div>
+
           <button
             className={
               "hover:border-orange border-transparent border-2 rounded-[30px]"
