@@ -89,14 +89,14 @@ export default function Product(props: ProductItemDetails) {
 
           <button
             id="addCart"
-            className="w-full sm:w-60 h-12 flex justify-center items-center gap-4 bg-orange rounded-lg text-white text-sm font-bold"
+            className="w-full sm:w-60 h-12 flex justify-center items-center gap-4 bg-orange rounded-lg text-white text-sm font-bold hover:bg-orange/[.7] hover:drop-shadow-[0_10px_10px_rgb(255,126,27,0.7)]"
             onClick={handleAddShoppingCart}
           >
             <Image
               src={"/images/icon-cart.svg"}
               alt={"Add to Shopping Cart"}
-              width={22}
-              height={20}
+              width={18}
+              height={18}
               className={styles.shoppingCart}
             />
             <h3>Add to cart</h3>

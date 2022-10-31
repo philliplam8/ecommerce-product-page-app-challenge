@@ -1,3 +1,3 @@
 .shoppingCart {
-    filter: invert(98%) sepia(99%) saturate(0%) hue-rotate(81deg) brightness(106%) contrast(100%);
+    filter: brightness(0) invert(1)
 }
