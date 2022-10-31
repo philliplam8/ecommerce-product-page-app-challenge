@@ -12,8 +12,18 @@ export default function Nav() {
 
   return (
     <div className="sticky top-0 flex flex-col z-20 bg-white">
-      <nav className="h-28 flex justify-between items-center border-b border-lightGray text-darkGrayishBlue">
-        <div className="h-full flex flex-row gap-14">
+      <nav className="h-16 md:h-24 flex justify-between items-center border-b border-lightGray text-darkGrayishBlue">
+        <div className="h-full flex flex-row gap-4 md:gap-12">
+          <div className="flex md:hidden h-full w-[16px] items-center">
+            <button>
+              <Image
+                src="/images/icon-menu.svg"
+                alt="hamburger menu"
+                width={16}
+                height={15}
+              />
+            </button>
+          </div>
           <Link href={"/"}>
             <div className="w-[138px] h-full flex items-center border-b-4 border-white">
               <Image
@@ -24,7 +34,7 @@ export default function Nav() {
               />
             </div>
           </Link>
-          <ul className="h-full flex flex-row gap-8 items-center">
+          <ul className="h-full hidden md:flex flex-row gap-8 items-center">
             <NavLink link="/" label="Collections" />
             <NavLink link="/" label="Men" />
             <NavLink link="/" label="Women" />
@@ -61,7 +71,7 @@ export default function Nav() {
           </button>
         </div>
       </nav>
-      <div className="absolute top-24 right-[-45px]">
+      <div className="absolute top-20 right-[-40px]">
         <ShoppingCart status={showShoppingCart} />
       </div>
     </div>

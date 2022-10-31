@@ -23,7 +23,7 @@ function CartItem(props: CartItemDetails) {
   };
 
   return (
-    <div className="w-full flex flex-row gap-2 justify-between font-medium">
+    <div className="w-full flex flex-row gap-2 justify-between items-center font-medium">
       <div className="flex flex-row gap-2">
         <div>Image</div>
         <div className="flex flex-col text-darkGrayishBlue">
@@ -52,7 +52,7 @@ function NonEmptyCart() {
   const [cart, setCart] = useContext(CartContext);
 
   return (
-    <div className="h-full w-full flex flex-col gap-3 justify-center items-center px-4 py-6">
+    <div className="h-full w-full flex flex-col gap-3 justify-center items-center px-6 py-6">
       {Object.keys(cart).map((item) => (
         <CartItem
           image={cart[item].image}
@@ -64,7 +64,7 @@ function NonEmptyCart() {
           discountedPrice={cart[item].discountedPrice}
         />
       ))}
-      <button className="w-full h-12 rounded-lg text-white text-sm bg-orange">
+      <button className="w-full h-12 my-2 rounded-lg text-white text-sm bg-orange">
         <h3>Checkout</h3>
       </button>
     </div>
@@ -76,7 +76,7 @@ export default function ShoppingCart(props: { status: boolean }) {
 
   return (
     <div
-      className={`w-full sm:w-[300px] h-full bg-white rounded-lg
+      className={`w-full sm:w-[350px] h-full bg-white rounded-lg
       ${props.status ? "visible" : "invisible"}`}
     >
       <div className="h-full flex flex-col font-bold text-sm rounded-lg shadow-2xl z-10">
