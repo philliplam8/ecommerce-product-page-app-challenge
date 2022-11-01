@@ -25,6 +25,38 @@ const productImages = [
   },
 ];
 
+function PreviousButton() {
+  return (
+    <div className="h-full flex items-center z-20">
+      <button className="h-10 w-10 -mr-5 flex justify-center items-center bg-white rounded-3xl">
+        <Image
+          src={"/images/icon-previous.svg"}
+          alt={`Previous modal item`}
+          width={9}
+          height={9}
+          className={styles.nav}
+        />
+      </button>
+    </div>
+  );
+}
+
+function NextButton() {
+  return (
+    <div className="h-full flex items-center z-20">
+      <button className="h-10 w-10 -ml-5 flex justify-center items-center bg-white rounded-3xl">
+        <Image
+          src={"/images/icon-next.svg"}
+          alt={`Next modal item`}
+          width={10}
+          height={9.5}
+          className={styles.nav}
+        />
+      </button>
+    </div>
+  );
+}
+
 function MainImage() {
   return (
     <Image
@@ -84,29 +116,9 @@ export default function Carousel() {
             </button>
           </div>
           <div className="flex flex-row">
-            <div className="h-full flex items-center z-20">
-              <button className="h-10 w-10 -mr-5 flex justify-center items-center bg-white rounded-3xl">
-                <Image
-                  src={"/images/icon-previous.svg"}
-                  alt={`Previous modal item`}
-                  width={9}
-                  height={9}
-                  className={styles.nav}
-                />
-              </button>
-            </div>
+            <PreviousButton />
             <MainImage />
-            <div className="h-full flex items-center z-20">
-              <button className="h-10 w-10 -ml-5 flex justify-center items-center bg-white rounded-3xl">
-                <Image
-                  src={"/images/icon-next.svg"}
-                  alt={`Next modal item`}
-                  width={10}
-                  height={9.5}
-                  className={styles.nav}
-                />
-              </button>
-            </div>
+            <NextButton />
           </div>
         </div>
       </div>
