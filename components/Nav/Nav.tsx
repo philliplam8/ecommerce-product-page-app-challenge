@@ -91,9 +91,8 @@ export default function Nav() {
           </button>
         </div>
       </nav>
-      <div className="absolute top-20 right-[-40px]">
-        <ShoppingCart status={showShoppingCart} />
-      </div>
+
+      <ShoppingCart status={showShoppingCart} />
     </div>
   );
 }

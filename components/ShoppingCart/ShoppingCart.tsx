@@ -75,11 +75,12 @@ export default function ShoppingCart(props: { status: boolean }) {
   const [cart, setCart] = useContext(CartContext);
 
   return (
-    <div
-      className={`w-full sm:w-[350px] h-full bg-white rounded-lg
-      ${props.status ? "visible" : "invisible"}`}
-    >
-      <div className="h-full flex flex-col font-bold text-sm rounded-lg shadow-2xl z-10">
+    <div className="w-full md:w-[350px] absolute top-20 md:right-0">
+      <div
+        className={`h-full w-full flex flex-col font-bold text-sm shadow-2xl z-10 bg-white rounded-lg ${
+          props.status ? "visible" : "invisible"
+        }`}
+      >
         <div className="w-full flex items-center border-b border-lightGray py-5 px-4">
           <h3>Cart</h3>
         </div>
