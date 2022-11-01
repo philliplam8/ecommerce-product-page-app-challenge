@@ -1,0 +1,8 @@
+.close {
+    filter: brightness(0) invert(1)
+}
+
+.close:hover,
+.nav:hover {
+    filter: invert(72%) sepia(40%) saturate(7370%) hue-rotate(348deg) brightness(102%) contrast(101%);
+}
