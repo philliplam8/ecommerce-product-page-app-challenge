@@ -1,7 +1,10 @@
 import Nav from "./Nav";
 import NavLink from "./NavLink";
+import NavLinksDesktop from "./NavLinksDesktop";
 import styles from "./Nav.module.css";
 import Hamburger from "./Hamburger";
 import Avatar from "./Avatar";
 
-export { Nav, NavLink, styles, Hamburger, Avatar };
+const navLabels = ["Collections", "Men", "Women", "About", "Contact"];
+
+export { Nav, NavLink, NavLinksDesktop, styles, Hamburger, Avatar, navLabels };

@@ -2,9 +2,8 @@ import { useState, useContext, useMemo } from "react";
 import { CartContext } from "../../context/CartContext";
 import Link from "next/link";
 import Image from "next/image";
-import { NavLink, styles, Hamburger, Avatar } from "./";
+import { NavLinksDesktop, styles, Hamburger, Avatar } from "./";
 import { ShoppingCart } from "../ShoppingCart";
-import { CartItemDetails } from "../Product/types";
 
 export default function Nav() {
   const [cart, setCart] = useContext(CartContext);
@@ -30,8 +29,12 @@ export default function Nav() {
   return (
     <div className="sticky top-0 flex flex-col z-20 bg-white">
       <nav className="h-16 md:h-24 flex justify-between items-center border-b border-lightGray text-darkGrayishBlue mx-8">
-        <div className="flex flex-row gap-4 items-center md:gap-12">
-          <Hamburger showMenu={showMenu} onClick={handleMenuClick} />
+        <div className="h-full flex flex-row gap-4 items-center md:gap-12">
+          <Hamburger
+            showMenu={showMenu}
+            onButtonClick={handleMenuClick}
+            onDivClick={handleMenuClick}
+          />
           <Link href={"/"}>
             <div className="w-[138px] h-full flex items-center border-b-4 border-white">
               <Image
@@ -42,13 +45,7 @@ export default function Nav() {
               />
             </div>
           </Link>
-          <ul className="hidden md:flex flex-row gap-8 items-center bg-white">
-            <NavLink link="/" label="Collections" />
-            <NavLink link="/" label="Men" />
-            <NavLink link="/" label="Women" />
-            <NavLink link="/" label="About" />
-            <NavLink link="/" label="Contact" />
-          </ul>
+          <NavLinksDesktop />
         </div>
 
         <div
