@@ -48,7 +48,7 @@ export default function Product(props: ProductItemDetails) {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-10 justify-center mx-auto py-10">
+    <div className="flex flex-col md:flex-row gap-10 justify-center px-8 py-10">
       <Carousel />
 
       <div className="w-full md:w-1/2 flex flex-col">
