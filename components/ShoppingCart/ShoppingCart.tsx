@@ -77,8 +77,8 @@ export default function ShoppingCart(props: { status: boolean }) {
   return (
     <div className="w-full md:w-[350px] absolute top-20 md:right-0 md:px-0 px-8">
       <div
-        className={`h-full w-full flex flex-col font-bold text-sm shadow-2xl z-10 bg-white rounded-lg ${
-          props.status ? "visible" : "invisible"
+        className={`h-full w-full flex-col font-bold text-sm shadow-2xl z-10 bg-white rounded-lg ${
+          props.status ? "flex" : "hidden"
         }`}
       >
         <div className="w-full flex items-center border-b border-lightGray py-5 px-4">
