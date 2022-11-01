@@ -54,7 +54,10 @@ export default function Nav() {
           </ul>
         </div>
 
-        <div id="shopping-avatar" className="flex flex-row gap-10 items-center">
+        <div
+          id="shopping-avatar"
+          className="flex flex-row gap-5 md:gap-10 items-center"
+        >
           <div className="flex items-center">
             {Object.keys(cart).length > 0 && (
               <div className="absolute mb-4 ml-2.5 px-[7px] py-[0.75px]  bg-orange text-white text-[0.5em] rounded-xl z-30">
@@ -76,19 +79,20 @@ export default function Nav() {
               </button>
             </div>
           </div>
-
-          <button
-            className={
-              "hover:border-orange border-transparent border-2 rounded-[30px]"
-            }
-          >
-            <Image
-              src={"/images/image-avatar.png"}
-              alt={"Avatar Image"}
-              width={50}
-              height={50}
-            />
-          </button>
+          <div className="h-[35px] w-[35px] md:h-[50px] md:w-[50px]">
+            <button
+              className={
+                "hover:border-orange border-transparent border-2 rounded-[30px]"
+              }
+            >
+              <Image
+                src={"/images/image-avatar.png"}
+                alt={"Avatar Image"}
+                width={50}
+                height={50}
+              />
+            </button>
+          </div>
         </div>
       </nav>
 
