@@ -7,23 +7,37 @@ export default function ProductDetails(props: ProductItemDetails) {
   return (
     <div id="product-details" className="w-full flex flex-col justify-center">
       <div className="my-6">
-        <p className="font-bold text-xs text-orange tracking-widest">
+        <p
+          id="product-company"
+          className="font-bold text-[0.85em] text-orange tracking-widest"
+        >
           {props.company.toLocaleUpperCase()}
         </p>
-        <h1 className="font-bold text-[1.5em] md:text-[2.5em]">{props.name}</h1>
+        <h1
+          id="product-name"
+          className="font-bold text-[1.75em] md:text-[2.75em]"
+        >
+          {props.name}
+        </h1>
       </div>
 
-      <p className="text-darkGrayishBlue text-[0.80em] sm:text-[0.8em]">
+      <p
+        id="product-description"
+        className="text-darkGrayishBlue text-[0.80em] sm:text-[1em]"
+      >
         {props.description}
       </p>
 
       <div
-        id="price"
+        id="product-price"
         className="my-6 flex flex-row md:flex-col justify-between"
       >
         <div className="flex flex-row gap-5 items-center">
           <h2 className="font-bold text-[1.75em]">{finalPrice}</h2>
-          <div className="w-[50px] py-[0.15em] flex justify-center bg-paleOrange rounded-lg">
+          <div
+            id="product-discount"
+            className="w-[52px] py-[0.1em] flex justify-center bg-paleOrange rounded-md"
+          >
             <p className="font-bold text-orange">{props.discount}%</p>
           </div>
         </div>

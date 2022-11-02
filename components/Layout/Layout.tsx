@@ -11,7 +11,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Nav />
-      <main className="max-w-[1024px] m-auto">{children}</main>
+      <main className="max-w-[1180px] m-auto">{children}</main>
       <Footer />
     </>
   );

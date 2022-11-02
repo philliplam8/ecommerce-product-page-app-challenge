@@ -48,10 +48,10 @@ export default function Product(props: ProductItemDetails) {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-10 justify-center px-8 py-10">
+    <div className="flex flex-col md:flex-row justify-around py-12 lg:py-24">
       <Carousel />
 
-      <div className="w-full md:w-1/2 flex flex-col">
+      <div className="w-full md:max-w-[520px] flex flex-col px-2">
         <ProductDetails
           company={props.company}
           name={props.name}
@@ -61,35 +61,35 @@ export default function Product(props: ProductItemDetails) {
           discountedPrice={props.discountedPrice}
         />
 
-        <div id="controls" className="flex flex-col sm:flex-row gap-3">
+        <div id="controls" className="flex flex-col sm:flex-row gap-4">
           <div
             id="quantity"
-            className="h-12 flex flex-row items-center justify-between rounded-lg bg-lightGrayishBlue"
+            className="h-14 flex flex-row items-center justify-between rounded-lg bg-lightGrayishBlue"
           >
             <button className="p-4" onClick={handleDecrement}>
               <Image
                 src={"/images/icon-minus.svg"}
                 alt={"Decrement quantity"}
-                width={10}
-                height={4}
+                width={12}
+                height={12}
               />
             </button>
-            <div className="px-4">
-              <p className="text-sm font-bold">{quantity}</p>
+            <div className="px-[1.88em]">
+              <p className="text-[1em] font-bold">{quantity}</p>
             </div>
             <button className="p-4" onClick={handleIncrement}>
               <Image
                 src={"/images/icon-plus.svg"}
                 alt={"Increment quantity"}
-                width={10}
-                height={10}
+                width={12}
+                height={12}
               />
             </button>
           </div>
 
           <button
             id="addCart"
-            className="w-full sm:w-60 h-12 flex justify-center items-center gap-4 bg-orange rounded-lg text-white text-sm font-bold hover:bg-orange/[.7] hover:drop-shadow-[0_10px_10px_rgb(255,126,27,0.7)]"
+            className="w-full sm:w-[19.4em] h-14 flex justify-center items-center gap-4 bg-orange rounded-lg text-white text-sm font-bold hover:bg-orange/[.7] hover:drop-shadow-[0_10px_10px_rgb(255,126,27,0.7)]"
             onClick={handleAddShoppingCart}
           >
             <Image

@@ -1,7 +1,6 @@
 // pages/index.tsx
 
 import Head from "next/head";
-import { Nav } from "../components/Nav";
 import { Layout } from "../components/Layout";
 import { Product } from "../components/Product";
 
