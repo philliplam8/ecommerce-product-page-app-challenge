@@ -21,8 +21,8 @@ export default function Hamburger(props: {
 
       <div
         id="menu-backdrop"
-        className={`w-screen min-h-screen h-full absolute top-0 left-0 bg-veryDarkBlue/[.9] z-40 ease-in-out duration-75 ${
-          props.showMenu ? "block" : "hidden"
+        className={`w-screen min-h-screen h-full absolute top-0 left-0 bg-veryDarkBlue/[.9] z-40 ${
+          props.showMenu ? "fixed" : "hidden"
         }`}
         onClick={props.onDivClick}
       ></div>
