@@ -2,8 +2,8 @@
 
 import Head from "next/head";
 import { Nav } from "../components/Nav";
+import { Layout } from "../components/Layout";
 import { Product } from "../components/Product";
-import { Footer } from "../components/Footer";
 
 export default function Home() {
   // Demo Product Details
@@ -19,8 +19,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="max-w-[1024px] m-auto">
-        <Nav />
+      <Layout>
         <Product
           company="Sneaker Company"
           name="Fall Limited Edition Sneakers"
@@ -29,9 +28,7 @@ export default function Home() {
           discount={discount}
           discountedPrice={discountedPrice}
         />
-      </main>
-
-      <Footer />
+      </Layout>
     </div>
   );
 }
