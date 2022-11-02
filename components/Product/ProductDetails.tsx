@@ -15,7 +15,7 @@ export default function ProductDetails(props: ProductItemDetails) {
         </p>
         <h1
           id="product-name"
-          className="font-bold text-[1.75em] md:text-[2.75em]"
+          className="font-bold text-[1.75em] md:text-[2em] lg:text-[2.75em]"
         >
           {props.name}
         </h1>
@@ -23,7 +23,7 @@ export default function ProductDetails(props: ProductItemDetails) {
 
       <p
         id="product-description"
-        className="text-darkGrayishBlue text-[0.80em] sm:text-[1em]"
+        className="text-darkGrayishBlue text-[0.80em] md:text-[0.9em] lg:text-[1em]"
       >
         {props.description}
       </p>
