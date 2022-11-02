@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useEffect } from "react";
+import { ModalContext } from "../../context/ModalContext";
 import Image from "next/image";
 import { styles } from ".";
 
@@ -70,7 +71,7 @@ function MainImage(props: { width: number; height: number }) {
 }
 
 export default function Carousel() {
-  const [showCarousel, setShowCarousel] = useState(false);
+  const [showCarousel, setShowCarousel] = useContext(ModalContext);
   const handleCarouselOpen = () => {
     setShowCarousel(!showCarousel);
   };
@@ -91,47 +92,37 @@ export default function Carousel() {
     );
   }
 
-  return (
-    <div id="carousel">
-      <div className="h-full w-[400px] flex flex-col gap-5 mx-auto">
-        <button onClick={handleCarouselOpen}>
-          <MainImage width={400} height={400} />
-        </button>
-        <div className="flex flex-row gap-2 justify-between">
-          {productImages.map((image) => {
-            return (
-              <button key={image.thumbnail}>
-                <Image
-                  src={image.thumbnail}
-                  alt={`Product Image ${image.productId} Thumbnail`}
-                  width={75}
-                  height={75}
-                  className={"rounded-xl border-2 hover:border-orange"}
-                />
-              </button>
-            );
-          })}
-        </div>
-      </div>
+  useEffect(() => {
+    if (showCarousel) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [showCarousel]);
 
-      <div
-        id="modal-backdrop"
-        className={`min-h-screen h-full w-full flex justify-center top-0 left-0 bg-veryDarkBlue/[.9] z-30 ${
-          showCarousel ? "absolute" : "hidden"
-        }`}
-        onClick={handleCarouselOpen}
-      >
-        <div
-          id="modal"
-          className={`h-screen w-[600px] flex flex-col justify-center items-center z-40`}
-        >
-          <CloseButton />
-          <div className="flex flex-row">
-            <PreviousButton />
-            <MainImage width={500} height={500} />
-            <NextButton />
-          </div>
-        </div>
+  return (
+    <div
+      id="carousel"
+      className="h-full max-w-[541px] min-w-[400px] flex flex-col gap-7 mx-auto px-12"
+    >
+      <button onClick={handleCarouselOpen}>
+        <MainImage width={500} height={450} />
+      </button>
+
+      <div className="flex flex-row justify-between">
+        {productImages.map((image) => {
+          return (
+            <button key={image.thumbnail}>
+              <Image
+                src={image.thumbnail}
+                alt={`Product Image ${image.productId} Thumbnail`}
+                width={92}
+                height={92}
+                className={"rounded-xl border-2 hover:border-orange"}
+              />
+            </button>
+          );
+        })}
       </div>
     </div>
   );
