@@ -27,9 +27,9 @@ export default function Nav() {
   }, [cart]);
 
   return (
-    <div className="sticky top-0 flex flex-col z-20 bg-white">
+    <div className="max-w-[1180px] m-auto sticky top-0 flex flex-col z-20 bg-white">
       <nav className="h-16 md:h-24 flex justify-between items-center border-b border-lightGray text-darkGrayishBlue mx-8">
-        <div className="h-full flex flex-row gap-4 items-center md:gap-12">
+        <div className="h-full flex flex-row gap-4 items-center md:gap-14">
           <Hamburger
             showMenu={showMenu}
             onButtonClick={handleMenuClick}
