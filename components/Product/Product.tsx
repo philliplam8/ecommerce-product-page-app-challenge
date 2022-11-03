@@ -51,7 +51,7 @@ export default function Product(props: ProductItemDetails) {
     <div className="flex flex-col md:flex-row justify-around py-0 md:py-12 lg:py-24">
       <Carousel />
 
-      <div className="w-full md:w-[520px] flex flex-col px-12 md:px-2 md:pr-10">
+      <div className="w-full md:w-[520px] flex flex-col px-12 md:px-6">
         <ProductDetails
           company={props.company}
           name={props.name}
