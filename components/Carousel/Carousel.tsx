@@ -140,10 +140,10 @@ export default function Carousel() {
                 alt={`Product Image ${image.productId} Thumbnail`}
                 width={92}
                 height={92}
-                className={`rounded-xl border-2 hover:border-orange ${
+                className={`rounded-xl border-2 ${
                   image.productId === currentImage
-                    ? "opacity-50 border-orange"
-                    : "opacity-100"
+                    ? "opacity-40 border-orange"
+                    : "opacity-100 hover:opacity-60"
                 }`}
               />
             </button>
