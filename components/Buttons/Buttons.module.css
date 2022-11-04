@@ -9,3 +9,8 @@
 .filterActive {
     filter: invert(42%) sepia(93%) saturate(100%) hue-rotate(87deg) brightness(0%) contrast(119%);
 }
+
+/* White button */
+.close {
+    filter: brightness(0) invert(1)
+}
