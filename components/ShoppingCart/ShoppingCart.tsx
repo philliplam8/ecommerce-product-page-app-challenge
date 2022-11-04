@@ -32,7 +32,15 @@ function CartItem(props: CartItemDetails): JSX.Element {
   return (
     <div className="w-full flex flex-row gap-2 justify-between items-center font-medium">
       <div className="flex flex-row gap-2">
-        <div>Image</div>
+        <div>
+          <Image
+            src={props.image}
+            width={50}
+            height={50}
+            alt={"Product Image Thumbnail"}
+            className="rounded-[4px]"
+          />
+        </div>
         <div className="flex flex-col text-darkGrayishBlue">
           <h3>{props.name}</h3>
           <div className="flex flex-row gap-2">
@@ -53,7 +61,7 @@ function NonEmptyCart(): JSX.Element {
   const [cart, setCart] = useContext(CartContext);
 
   return (
-    <div className="h-full w-full flex flex-col gap-3 justify-center items-center px-6 py-6">
+    <div className="h-full w-full flex flex-col gap-4 justify-center items-center px-6 py-6">
       {Object.keys(cart).map((item) => (
         <CartItem
           image={cart[item].image}
@@ -65,7 +73,7 @@ function NonEmptyCart(): JSX.Element {
           discountedPrice={cart[item].discountedPrice}
         />
       ))}
-      <button className="w-full h-12 my-2 rounded-lg text-white text-sm bg-orange">
+      <button className="w-full h-14 my-2 rounded-lg text-white text-sm bg-orange">
         <h3>Checkout</h3>
       </button>
     </div>

@@ -1,5 +1,4 @@
 export interface ItemDetails {
-  image?: string;
   name: string;
   originalPrice: number;
   discount: number;
@@ -7,6 +6,7 @@ export interface ItemDetails {
 }
 
 export interface CartItemDetails extends ItemDetails {
+  image: string;
   quantity: number;
 }
 

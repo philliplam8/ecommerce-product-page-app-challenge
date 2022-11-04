@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import { productImages } from "../../context/ModalContext";
 import Image from "next/image";
 import { ProductDetails, styles } from "./";
 import { CartItemDetails, ProductItemDetails } from "./types";
@@ -27,6 +28,7 @@ export default function Product(props: ProductItemDetails): JSX.Element {
   const handleAddShoppingCart = (): void => {
     if (quantity > 0) {
       const newCartItem: CartItemDetails = {
+        image: productImages[0].thumbnail,
         name: props.name,
         originalPrice: props.originalPrice,
         discount: props.discount,
