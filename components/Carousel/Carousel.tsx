@@ -1,34 +1,9 @@
 import { useState, useContext, useEffect, MouseEventHandler } from "react";
-import { ModalContext } from "../../context/ModalContext";
+import { productImages, ModalContext } from "../../context/ModalContext";
 import Image from "next/image";
-import { styles } from ".";
 import { NextButton, PreviousButton } from "../Buttons";
 
-// Images for demo product
-const productImages = [
-  {
-    productId: 1,
-    main: "/images/image-product-1.jpg",
-    thumbnail: "/images/image-product-1-thumbnail.jpg",
-  },
-  {
-    productId: 2,
-    main: "/images/image-product-2.jpg",
-    thumbnail: "/images/image-product-2-thumbnail.jpg",
-  },
-  {
-    productId: 3,
-    main: "/images/image-product-3.jpg",
-    thumbnail: "/images/image-product-3-thumbnail.jpg",
-  },
-  {
-    productId: 4,
-    main: "/images/image-product-4.jpg",
-    thumbnail: "/images/image-product-4-thumbnail.jpg",
-  },
-];
-
-export default function Carousel() {
+export default function Carousel(): JSX.Element {
   // First and last images from image array
   const firstProductId = productImages[0].productId;
   const lastProductId = productImages[productImages.length - 1].productId;
@@ -43,14 +18,14 @@ export default function Carousel() {
    * Change the carousel to show the image of productId
    * @param productId The id of one of the images for a product item
    */
-  const handleCarouselChange = (productId: number) => {
+  const handleCarouselChange = (productId: number): void => {
     setCurrentImage(productId);
   };
 
   /**
    * Move the carousel one slide backwards
    */
-  const handleCarouselDecrement = () => {
+  const handleCarouselDecrement = (): void => {
     if (currentImage === firstProductId) {
       setCurrentImage(lastProductId);
     } else {
@@ -61,7 +36,7 @@ export default function Carousel() {
   /**
    * Move the carousel one slide fowards
    */
-  const handleCarouselIncrement = () => {
+  const handleCarouselIncrement = (): void => {
     if (currentImage === lastProductId) {
       setCurrentImage(firstProductId);
     } else {
@@ -73,7 +48,7 @@ export default function Carousel() {
     width: number;
     height: number;
     productId: number;
-  }) {
+  }): JSX.Element {
     return (
       <Image
         src={`/images/image-product-${props.productId}.jpg`}
@@ -85,23 +60,7 @@ export default function Carousel() {
     );
   }
 
-  function CloseButton() {
-    return (
-      <div className="w-full flex justify-end py-3">
-        <button onClick={handleModalOpen}>
-          <Image
-            src={"/images/icon-close.svg"}
-            alt={`Close modal`}
-            width={14}
-            height={15}
-            className={styles.close}
-          />
-        </button>
-      </div>
-    );
-  }
-
-  useEffect(() => {
+  useEffect((): void => {
     if (showModal) {
       document.body.style.overflow = "hidden";
     } else {
