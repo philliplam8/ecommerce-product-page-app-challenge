@@ -1,7 +1,7 @@
-import { useState, useContext, useEffect, MouseEventHandler } from "react";
+import { useState, useContext, useEffect } from "react";
 import { productImages, ModalContext } from "../../context/ModalContext";
 import Image from "next/image";
-import { NextButton, PreviousButton } from "../Buttons";
+import { CloseButton, NextButton, PreviousButton, styles } from "../Buttons";
 
 export default function Carousel(): JSX.Element {
   // First and last images from image array
@@ -60,6 +60,33 @@ export default function Carousel(): JSX.Element {
     );
   }
 
+  function ThumbnailImages(): JSX.Element {
+    return (
+      <div className={`flex flex-row justify-between`}>
+        {productImages.map((image) => {
+          return (
+            <button
+              key={image.thumbnail}
+              onClick={() => handleCarouselChange(image.productId)}
+            >
+              <Image
+                src={image.thumbnail}
+                alt={`Product Image ${image.productId} Thumbnail`}
+                width={92}
+                height={92}
+                className={`rounded-xl border-2 ${
+                  image.productId === currentImage
+                    ? "opacity-40 border-orange"
+                    : "opacity-100 hover:opacity-60"
+                }`}
+              />
+            </button>
+          );
+        })}
+      </div>
+    );
+  }
+
   useEffect((): void => {
     if (showModal) {
       document.body.style.overflow = "hidden";
@@ -86,39 +113,49 @@ export default function Carousel(): JSX.Element {
           handleIncrement={handleCarouselIncrement}
         />
       </div>
-
-      <div className={`hidden md:flex flex-row justify-between`}>
-        {productImages.map((image) => {
-          return (
-            <button
-              key={image.thumbnail}
-              onClick={() => handleCarouselChange(image.productId)}
-            >
-              <Image
-                src={image.thumbnail}
-                alt={`Product Image ${image.productId} Thumbnail`}
-                width={92}
-                height={92}
-                className={`rounded-xl border-2 ${
-                  image.productId === currentImage
-                    ? "opacity-40 border-orange"
-                    : "opacity-100 hover:opacity-60"
-                }`}
-              />
-            </button>
-          );
-        })}
+      <div className="hidden md:block">
+        <ThumbnailImages />
       </div>
-      {/* 
-      <div id="modal" className={`z-40 ${!!showModal ? "sticky" : "hidden"}`}>
-        <div className="flex flex-row justify-center items-center">
-          <PreviousButton />
-          <div>
-            <MainImage width={500} height={500} productId={currentImage} />
+
+      <div
+        id="modal"
+        className={`z-40 ${
+          !!showModal
+            ? "absolute left-0 right-0 top-0 bottom-0 max-w-[607px] max-h-[607px] m-auto"
+            : "hidden"
+        }`}
+      >
+        <div className="flex flex-col">
+          <div className="flex justify-end items-center mx-7 pb-5">
+            <CloseButton
+              handleClose={handleModalOpen}
+              classStyle={styles.close}
+            />
           </div>
-          <NextButton />
+          <div className="flex flex-row justify-center items-center px-2">
+            <PreviousButton
+              handleDecrement={handleCarouselDecrement}
+              classStyle={""}
+            />
+            <div className="w-[607px]">
+              <Image
+                src={`/images/image-product-${currentImage}.jpg`}
+                alt={`Product Image ${currentImage}`}
+                width={600}
+                height={600}
+                className={`rounded-xl`}
+              />
+            </div>
+            <NextButton
+              handleIncrement={handleCarouselIncrement}
+              classStyle={""}
+            />
+          </div>
+          <div className="py-9 px-20">
+            <ThumbnailImages />
+          </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }

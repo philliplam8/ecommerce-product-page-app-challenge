@@ -83,6 +83,7 @@ export function IncrementButton(props: {
 }
 
 export function CloseButton(props: {
+  classStyle?: string;
   handleClose: MouseEventHandler<HTMLButtonElement>;
 }): JSX.Element {
   return (
@@ -92,7 +93,7 @@ export function CloseButton(props: {
         alt="Close button"
         width={16}
         height={15}
-        className={styles.orangeHighlight}
+        className={`${styles.orangeHighlight} ${props.classStyle}`}
       />
     </button>
   );
