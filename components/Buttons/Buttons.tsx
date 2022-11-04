@@ -17,7 +17,7 @@ export function PreviousButton(props: {
           alt={`Previous item`}
           width={9}
           height={9}
-          className={styles.arrowButton}
+          className={styles.orangeHighlight}
         />
       </button>
     </div>
@@ -39,7 +39,7 @@ export function NextButton(props: {
           alt={`Next item`}
           width={10}
           height={9.5}
-          className={styles.arrowButton}
+          className={styles.orangeHighlight}
         />
       </button>
     </div>
@@ -82,6 +82,22 @@ export function IncrementButton(props: {
   );
 }
 
+export function CloseButton(props: {
+  handleClose: MouseEventHandler<HTMLButtonElement>;
+}) {
+  return (
+    <button className="w-[16px]" onClick={props.handleClose}>
+      <Image
+        src="/images/icon-close.svg"
+        alt="Close button"
+        width={16}
+        height={15}
+        className={styles.orangeHighlight}
+      />
+    </button>
+  );
+}
+
 export function TrashButton(props: {
   itemToRemove: string;
   handleCartItemRemoval: MouseEventHandler<HTMLButtonElement>;
@@ -94,6 +110,7 @@ export function TrashButton(props: {
           alt={`Remove ${props.itemToRemove} from cart`}
           width={14}
           height={16}
+          className={styles.orangeHighlight}
         />
       </button>
     </div>
