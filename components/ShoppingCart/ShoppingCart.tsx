@@ -16,6 +16,9 @@ function EmptyCart(): JSX.Element {
 function CartItem(props: CartItemDetails): JSX.Element {
   const [cart, setCart] = useContext(CartContext);
 
+  // Format discounted price
+  const discountedPrice: string = `$${props.discountedPrice.toFixed(2)}`;
+
   // Calculate the final price cost after the discount and format string with decimals
   const totalCost: number = props.discountedPrice * props.quantity;
   const finalPrice: string = `$${totalCost.toFixed(2)}`;
@@ -44,7 +47,9 @@ function CartItem(props: CartItemDetails): JSX.Element {
         <div className="flex flex-col text-darkGrayishBlue">
           <h3>{props.name}</h3>
           <div className="flex flex-row gap-2">
-            <p>Price x {props.quantity}</p>
+            <p>
+              {discountedPrice} x {props.quantity}
+            </p>
             <p className="text-black font-bold">{finalPrice}</p>
           </div>
         </div>
