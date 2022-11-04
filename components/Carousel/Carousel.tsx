@@ -1,8 +1,10 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, MouseEventHandler } from "react";
 import { ModalContext } from "../../context/ModalContext";
 import Image from "next/image";
 import { styles } from ".";
+import { NextButton, PreviousButton } from "../Buttons";
 
+// Images for demo product
 const productImages = [
   {
     productId: 1,
@@ -26,47 +28,45 @@ const productImages = [
   },
 ];
 
-function PreviousButton(props: { classStyle?: string }) {
-  return (
-    <div className={`h-full flex items-center z-20 ${props.classStyle}`}>
-      <button className="h-10 w-10 -mr-5 flex justify-center items-center bg-white rounded-3xl">
-        <Image
-          src={"/images/icon-previous.svg"}
-          alt={`Previous modal item`}
-          width={9}
-          height={9}
-          className={styles.nav}
-        />
-      </button>
-    </div>
-  );
-}
-
-function NextButton(props: { classStyle?: string }) {
-  return (
-    <div className={`h-full flex items-center z-20 ${props.classStyle}`}>
-      <button className="h-10 w-10 -ml-5 flex justify-center items-center bg-white rounded-3xl">
-        <Image
-          src={"/images/icon-next.svg"}
-          alt={`Next modal item`}
-          width={10}
-          height={9.5}
-          className={styles.nav}
-        />
-      </button>
-    </div>
-  );
-}
-
 export default function Carousel() {
+  // First and last images from image array
+  const firstProductId = productImages[0].productId;
+  const lastProductId = productImages[productImages.length - 1].productId;
+
   const [currentImage, setCurrentImage] = useState(1);
   const [showModal, setshowModal] = useContext(ModalContext);
-  const handleCarouselOpen = () => {
+  const handleModalOpen = () => {
     setshowModal(!showModal);
   };
 
+  /**
+   * Change the carousel to show the image of productId
+   * @param productId The id of one of the images for a product item
+   */
   const handleCarouselChange = (productId: number) => {
     setCurrentImage(productId);
+  };
+
+  /**
+   * Move the carousel one slide backwards
+   */
+  const handleCarouselDecrement = () => {
+    if (currentImage === firstProductId) {
+      setCurrentImage(lastProductId);
+    } else {
+      setCurrentImage(currentImage - 1);
+    }
+  };
+
+  /**
+   * Move the carousel one slide fowards
+   */
+  const handleCarouselIncrement = () => {
+    if (currentImage === lastProductId) {
+      setCurrentImage(firstProductId);
+    } else {
+      setCurrentImage(currentImage + 1);
+    }
   };
 
   function MainImage(props: {
@@ -88,7 +88,7 @@ export default function Carousel() {
   function CloseButton() {
     return (
       <div className="w-full flex justify-end py-3">
-        <button onClick={handleCarouselOpen}>
+        <button onClick={handleModalOpen}>
           <Image
             src={"/images/icon-close.svg"}
             alt={`Close modal`}
@@ -115,11 +115,17 @@ export default function Carousel() {
       className="h-full max-w-[541px] flex flex-col gap-7 mx-auto md:px-6"
     >
       <div className="relative flex flex-row items-center">
-        <PreviousButton classStyle={"md:hidden absolute left-4"} />
-        <button onClick={handleCarouselOpen} className={``}>
+        <PreviousButton
+          classStyle={"md:hidden absolute left-4"}
+          handleDecrement={handleCarouselDecrement}
+        />
+        <button onClick={handleModalOpen} className={``}>
           <MainImage width={600} height={600} productId={currentImage} />
         </button>
-        <NextButton classStyle={"md:hidden absolute right-4"} />
+        <NextButton
+          classStyle={"md:hidden absolute right-4"}
+          handleIncrement={handleCarouselIncrement}
+        />
       </div>
 
       <div className={`hidden md:flex flex-row justify-between`}>
