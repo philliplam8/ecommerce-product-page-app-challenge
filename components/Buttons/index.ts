@@ -3,6 +3,7 @@ import {
   PreviousButton,
   IncrementButton,
   DecrementButton,
+  CloseButton,
   TrashButton,
 } from "./Buttons";
 import styles from "./Buttons.module.css";
@@ -12,6 +13,7 @@ export {
   PreviousButton,
   IncrementButton,
   DecrementButton,
+  CloseButton,
   TrashButton,
   styles,
 };

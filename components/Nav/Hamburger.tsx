@@ -2,10 +2,11 @@ import Image from "next/image";
 import { MouseEventHandler } from "react";
 import Footer from "../Footer/Footer";
 import { NavLink, navLabels } from "./";
+import { CloseButton } from "../Buttons";
 
 export default function Hamburger(props: {
-  onButtonClick: MouseEventHandler<HTMLButtonElement> | undefined;
-  onDivClick: MouseEventHandler<HTMLDivElement> | undefined;
+  onButtonClick: MouseEventHandler<HTMLButtonElement>;
+  onDivClick: MouseEventHandler<HTMLDivElement>;
   showMenu: boolean;
 }) {
   return (
@@ -33,14 +34,7 @@ export default function Hamburger(props: {
         }`}
       >
         <div className="flex flex-col gap-12">
-          <button className="w-[16px]" onClick={props.onButtonClick}>
-            <Image
-              src="/images/icon-close.svg"
-              alt="Close hamburger menu"
-              width={16}
-              height={15}
-            />
-          </button>
+          <CloseButton handleClose={props.onButtonClick} />
           <div className="flex flex-col gap-6" onClick={props.onDivClick}>
             {navLabels.map((item) => {
               return <NavLink key={item} link="/" label={item} />;
