@@ -33,7 +33,7 @@ export default function Carousel() {
   const firstProductId = productImages[0].productId;
   const lastProductId = productImages[productImages.length - 1].productId;
 
-  const [currentImage, setCurrentImage] = useState(1);
+  const [currentImage, setCurrentImage] = useState(firstProductId);
   const [showModal, setshowModal] = useContext(ModalContext);
   const handleModalOpen = () => {
     setshowModal(!showModal);
