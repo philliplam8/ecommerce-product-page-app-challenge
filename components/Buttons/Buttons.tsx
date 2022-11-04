@@ -7,7 +7,7 @@ export function PreviousButton(props: {
   handleDecrement: MouseEventHandler<HTMLButtonElement>;
 }) {
   return (
-    <div className={`h-full flex items-center z-20 ${props.classStyle}`}>
+    <div className={`h-full flex items-center z-10 ${props.classStyle}`}>
       <button
         className={`h-10 w-10 -mr-5 flex justify-center items-center bg-white rounded-3xl`}
         onClick={props.handleDecrement}
@@ -29,7 +29,7 @@ export function NextButton(props: {
   handleIncrement: MouseEventHandler<HTMLButtonElement>;
 }) {
   return (
-    <div className={`h-full flex items-center z-20 ${props.classStyle}`}>
+    <div className={`h-full flex items-center z-10 ${props.classStyle}`}>
       <button
         className="h-10 w-10 -ml-5 flex justify-center items-center bg-white rounded-3xl"
         onClick={props.handleIncrement}
