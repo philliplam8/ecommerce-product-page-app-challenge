@@ -2,8 +2,9 @@ import { useState, useContext, useMemo } from "react";
 import { CartContext } from "../../context/CartContext";
 import Link from "next/link";
 import Image from "next/image";
-import { NavLinksDesktop, styles, Hamburger, Avatar } from "./";
+import { NavLinksDesktop, Hamburger, Avatar } from "./";
 import { ShoppingCart } from "../ShoppingCart";
+import { ShoppingCartButton } from "../Buttons/Buttons";
 
 export default function Nav() {
   const [cart, setCart] = useContext(CartContext);
@@ -62,19 +63,10 @@ export default function Nav() {
               </div>
             )}
 
-            <div className="h-[20px] w-[22px]">
-              <button onClick={handleCartClick}>
-                <Image
-                  src={"/images/icon-cart.svg"}
-                  alt={"View Shopping Cart"}
-                  width={22}
-                  height={20}
-                  className={`${
-                    showCart ? styles.filterActive : styles.filter
-                  }`}
-                />
-              </button>
-            </div>
+            <ShoppingCartButton
+              showCart={showCart}
+              handleCartClick={handleCartClick}
+            />
           </div>
           <Avatar />
         </div>

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import Image from "next/image";
 import { CartItemDetails, ProductItemDetails } from "../Product/types";
+import { TrashButton } from "../Buttons";
 
 function EmptyCart() {
   return (
@@ -34,16 +35,10 @@ function CartItem(props: CartItemDetails) {
           </div>
         </div>
       </div>
-      <div className="h-[16px]">
-        <button onClick={handleCartItemRemoval}>
-          <Image
-            src={"/images/icon-delete.svg"}
-            alt={`Remove ${props.name} from cart`}
-            width={14}
-            height={16}
-          />
-        </button>
-      </div>
+      <TrashButton
+        itemToRemove={props.name}
+        handleCartItemRemoval={handleCartItemRemoval}
+      />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ProductDetails, styles } from "./";
 import { CartItemDetails, ProductItemDetails } from "./types";
 import { Carousel } from "../Carousel";
+import { IncrementButton, DecrementButton } from "../Buttons";
 
 export default function Product(props: ProductItemDetails) {
   const [quantity, setQuantity] = useState(0);
@@ -66,33 +67,13 @@ export default function Product(props: ProductItemDetails) {
             id="quantity"
             className="h-14 flex flex-row items-center justify-between rounded-lg bg-lightGrayishBlue"
           >
-            <button
-              className="w-[44px] h-[44px] flex justify-center items-center"
-              onClick={handleDecrement}
-            >
-              <Image
-                src={"/images/icon-minus.svg"}
-                alt={"Decrement quantity"}
-                width={12}
-                height={4}
-              />
-            </button>
+            <DecrementButton handleDecrement={handleDecrement} />
 
             <div className="px-[1.88em]">
               <p className="text-[1em] font-bold">{quantity}</p>
             </div>
 
-            <button
-              className="w-[44px] h-[44px] flex justify-center items-center"
-              onClick={handleIncrement}
-            >
-              <Image
-                src={"/images/icon-plus.svg"}
-                alt={"Increment quantity"}
-                width={12}
-                height={12}
-              />
-            </button>
+            <IncrementButton handleIncrement={handleIncrement} />
           </div>
 
           <button
