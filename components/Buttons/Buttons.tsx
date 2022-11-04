@@ -5,7 +5,7 @@ import { styles } from "./";
 export function PreviousButton(props: {
   classStyle?: string;
   handleDecrement: MouseEventHandler<HTMLButtonElement>;
-}) {
+}): JSX.Element {
   return (
     <div className={`h-full flex items-center z-10 ${props.classStyle}`}>
       <button
@@ -27,7 +27,7 @@ export function PreviousButton(props: {
 export function NextButton(props: {
   classStyle: string;
   handleIncrement: MouseEventHandler<HTMLButtonElement>;
-}) {
+}): JSX.Element {
   return (
     <div className={`h-full flex items-center z-10 ${props.classStyle}`}>
       <button
@@ -48,7 +48,7 @@ export function NextButton(props: {
 
 export function DecrementButton(props: {
   handleDecrement: MouseEventHandler<HTMLButtonElement>;
-}) {
+}): JSX.Element {
   return (
     <button
       className="w-[44px] h-[44px] flex justify-center items-center"
@@ -66,7 +66,7 @@ export function DecrementButton(props: {
 
 export function IncrementButton(props: {
   handleIncrement: MouseEventHandler<HTMLButtonElement>;
-}) {
+}): JSX.Element {
   return (
     <button
       className="w-[44px] h-[44px] flex justify-center items-center"
@@ -84,7 +84,7 @@ export function IncrementButton(props: {
 
 export function CloseButton(props: {
   handleClose: MouseEventHandler<HTMLButtonElement>;
-}) {
+}): JSX.Element {
   return (
     <button className="w-[16px]" onClick={props.handleClose}>
       <Image
@@ -101,7 +101,7 @@ export function CloseButton(props: {
 export function TrashButton(props: {
   itemToRemove: string;
   handleCartItemRemoval: MouseEventHandler<HTMLButtonElement>;
-}) {
+}): JSX.Element {
   return (
     <div className="h-[16px]">
       <button onClick={props.handleCartItemRemoval}>
@@ -120,7 +120,7 @@ export function TrashButton(props: {
 export function ShoppingCartButton(props: {
   showCart: boolean;
   handleCartClick: MouseEventHandler<HTMLButtonElement>;
-}) {
+}): JSX.Element {
   return (
     <div className="h-[20px] w-[22px]">
       <button onClick={props.handleCartClick}>

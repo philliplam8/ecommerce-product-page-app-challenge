@@ -6,20 +6,20 @@ import { NavLinksDesktop, Hamburger, Avatar } from "./";
 import { ShoppingCart } from "../ShoppingCart";
 import { ShoppingCartButton } from "../Buttons/Buttons";
 
-export default function Nav() {
+export default function Nav(): JSX.Element {
   const [cart, setCart] = useContext(CartContext);
   const [showMenu, setShowMenu] = useState(false);
   const [showCart, setshowCart] = useState(false);
 
-  const handleMenuClick = () => {
+  const handleMenuClick = (): void => {
     setShowMenu(!showMenu);
   };
 
-  const handleCartClick = () => {
+  const handleCartClick = (): void => {
     setshowCart(!showCart);
   };
 
-  const cartAmount = useMemo(() => {
+  const cartAmount: number = useMemo(() => {
     let amount = 0;
     Object.values(cart).forEach((item: any) => {
       amount += item.quantity;

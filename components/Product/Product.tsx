@@ -6,25 +6,25 @@ import { CartItemDetails, ProductItemDetails } from "./types";
 import { Carousel } from "../Carousel";
 import { IncrementButton, DecrementButton } from "../Buttons";
 
-export default function Product(props: ProductItemDetails) {
+export default function Product(props: ProductItemDetails): JSX.Element {
   const [quantity, setQuantity] = useState(0);
   const [cart, setCart] = useContext(CartContext);
 
-  const resetQuantity = () => {
+  const resetQuantity = (): void => {
     setQuantity(0);
   };
 
-  const handleIncrement = () => {
+  const handleIncrement = (): void => {
     setQuantity(quantity + 1);
   };
 
-  const handleDecrement = () => {
+  const handleDecrement = (): void => {
     if (quantity > 0) {
       setQuantity(quantity - 1);
     }
   };
 
-  const handleAddShoppingCart = () => {
+  const handleAddShoppingCart = (): void => {
     if (quantity > 0) {
       const newCartItem: CartItemDetails = {
         name: props.name,

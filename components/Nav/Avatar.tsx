@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Avatar() {
+export default function Avatar(): JSX.Element {
   return (
     <div className="h-[35px] w-[35px] md:h-[50px] md:w-[50px]">
       <button

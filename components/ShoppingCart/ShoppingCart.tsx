@@ -1,10 +1,11 @@
+import Image from "next/image";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import Image from "next/image";
-import { CartItemDetails, ProductItemDetails } from "../Product/types";
+import { productImages } from "../../context/ModalContext";
+import { CartItemDetails } from "../Product/types";
 import { TrashButton } from "../Buttons";
 
-function EmptyCart() {
+function EmptyCart(): JSX.Element {
   return (
     <div className="h-full w-full flex justify-center items-center py-24">
       <h3 className="text-darkGrayishBlue">Your cart is empty.</h3>
@@ -12,12 +13,17 @@ function EmptyCart() {
   );
 }
 
-function CartItem(props: CartItemDetails) {
+function CartItem(props: CartItemDetails): JSX.Element {
   const [cart, setCart] = useContext(CartContext);
-  const totalCost = props.discountedPrice * props.quantity;
-  const finalPrice = `$${totalCost.toFixed(2)}`;
 
-  const handleCartItemRemoval = () => {
+  // Calculate the final price cost after the discount and format string with decimals
+  const totalCost: number = props.discountedPrice * props.quantity;
+  const finalPrice: string = `$${totalCost.toFixed(2)}`;
+
+  /**
+   * Remove product item from the shopping cart
+   */
+  const handleCartItemRemoval = (): void => {
     let newCart = { ...cart };
     delete newCart[props.name];
     setCart(newCart);
@@ -43,7 +49,7 @@ function CartItem(props: CartItemDetails) {
   );
 }
 
-function NonEmptyCart() {
+function NonEmptyCart(): JSX.Element {
   const [cart, setCart] = useContext(CartContext);
 
   return (
@@ -66,7 +72,7 @@ function NonEmptyCart() {
   );
 }
 
-export default function ShoppingCart(props: { status: boolean }) {
+export default function ShoppingCart(props: { status: boolean }): JSX.Element {
   const [cart, setCart] = useContext(CartContext);
 
   return (

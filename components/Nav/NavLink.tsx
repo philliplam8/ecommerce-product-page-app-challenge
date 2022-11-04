@@ -5,7 +5,7 @@ interface NavItem {
   label: string;
 }
 
-export default function NavLink(props: NavItem) {
+export default function NavLink(props: NavItem): JSX.Element {
   return (
     <Link
       href={props.link}

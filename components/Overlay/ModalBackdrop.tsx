@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { ModalContext } from "../../context/ModalContext";
 
-export default function ModalBackdrop() {
+export default function ModalBackdrop(): JSX.Element {
   const [showModal, setShowModal] = useContext(ModalContext);
-  const handleCarouselOpen = () => {
+  const handleCarouselOpen = (): void => {
     setShowModal(!showModal);
   };
   return (

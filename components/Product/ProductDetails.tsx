@@ -1,7 +1,7 @@
 import { ProductItemDetails } from "./types";
 
-export default function ProductDetails(props: ProductItemDetails) {
-  const formatedOriginalPrice = `$${props.originalPrice.toFixed(2)}`;
+export default function ProductDetails(props: ProductItemDetails): JSX.Element {
+  const formatedOriginalPrice: string = `$${props.originalPrice.toFixed(2)}`;
   const finalPrice: string = `$${props.discountedPrice.toFixed(2)}`;
 
   return (

@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function Footer(): JSX.Element {
   return (
     <footer className="flex flex-row justify-center py-5 text-xs">
       <p>

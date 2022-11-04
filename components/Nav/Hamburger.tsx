@@ -8,7 +8,7 @@ export default function Hamburger(props: {
   onButtonClick: MouseEventHandler<HTMLButtonElement>;
   onDivClick: MouseEventHandler<HTMLDivElement>;
   showMenu: boolean;
-}) {
+}): JSX.Element {
   return (
     <div className="md:hidden bg-white z-40">
       <button onClick={props.onButtonClick}>
