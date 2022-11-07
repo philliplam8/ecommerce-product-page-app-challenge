@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { productImages, ModalContext } from "../../context/ModalContext";
 import Image from "next/image";
 import { CloseButton, NextButton, PreviousButton, styles } from "../Buttons";
+import FocusTrap from "focus-trap-react";
 
 export default function Carousel(): JSX.Element {
   // First and last images from image array
@@ -117,45 +118,47 @@ export default function Carousel(): JSX.Element {
         <ThumbnailImages />
       </div>
 
-      <div
-        id="modal"
-        className={`z-40 ${
-          !!showModal
-            ? "absolute left-0 right-0 top-0 bottom-0 max-w-[607px] max-h-[607px] m-auto"
-            : "hidden"
-        }`}
-      >
-        <div className="flex flex-col">
-          <div className="flex justify-end items-center mx-7 pb-5">
-            <CloseButton
-              handleClose={handleModalOpen}
-              classStyle={styles.close}
-            />
-          </div>
-          <div className="flex flex-row justify-center items-center px-2">
-            <PreviousButton
-              handleDecrement={handleCarouselDecrement}
-              classStyle={""}
-            />
-            <div className="w-[607px]">
-              <Image
-                src={`/images/image-product-${currentImage}.jpg`}
-                alt={`Product Image ${currentImage}`}
-                width={600}
-                height={600}
-                className={`rounded-xl`}
+      <FocusTrap active={showModal}>
+        <div
+          id="modal"
+          className={`z-40 ${
+            !!showModal
+              ? "absolute left-0 right-0 top-0 bottom-0 max-w-[607px] max-h-[607px] m-auto"
+              : "hidden"
+          }`}
+        >
+          <div className="flex flex-col">
+            <div className="flex justify-end items-center mx-7 pb-5">
+              <CloseButton
+                handleClose={handleModalOpen}
+                classStyle={styles.close}
               />
             </div>
-            <NextButton
-              handleIncrement={handleCarouselIncrement}
-              classStyle={""}
-            />
-          </div>
-          <div className="py-9 px-20">
-            <ThumbnailImages />
+            <div className="flex flex-row justify-center items-center px-2">
+              <PreviousButton
+                handleDecrement={handleCarouselDecrement}
+                classStyle={""}
+              />
+              <div className="w-[607px]">
+                <Image
+                  src={`/images/image-product-${currentImage}.jpg`}
+                  alt={`Product Image ${currentImage}`}
+                  width={600}
+                  height={600}
+                  className={`rounded-xl`}
+                />
+              </div>
+              <NextButton
+                handleIncrement={handleCarouselIncrement}
+                classStyle={""}
+              />
+            </div>
+            <div className="py-9 px-20">
+              <ThumbnailImages />
+            </div>
           </div>
         </div>
-      </div>
+      </FocusTrap>
     </div>
   );
 }
