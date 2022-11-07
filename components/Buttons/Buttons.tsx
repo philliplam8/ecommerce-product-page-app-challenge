@@ -127,7 +127,7 @@ export function ShoppingCartButton(props: {
       <button onClick={props.handleCartClick}>
         <Image
           src={"/images/icon-cart.svg"}
-          alt={"View Shopping Cart"}
+          alt={props.showCart ? "Close Shopping Cart" : "Open Shopping Cart"}
           width={22}
           height={20}
           className={`${props.showCart ? styles.filterActive : styles.filter}`}
