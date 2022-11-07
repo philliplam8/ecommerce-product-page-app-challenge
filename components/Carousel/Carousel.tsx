@@ -69,16 +69,21 @@ export default function Carousel(): JSX.Element {
             <button
               key={image.thumbnail}
               onClick={() => handleCarouselChange(image.productId)}
+              className={`rounded-xl border-2  ${
+                image.productId === currentImage
+                  ? "border-orange bg-white"
+                  : "border-transparent"
+              }`}
             >
               <Image
                 src={image.thumbnail}
                 alt={`Product Image ${image.productId} Thumbnail`}
                 width={92}
                 height={92}
-                className={`rounded-xl border-2 ${
+                className={`${
                   image.productId === currentImage
-                    ? "opacity-40 border-orange"
-                    : "opacity-100 hover:opacity-60"
+                    ? "rounded-lg opacity-40"
+                    : "rounded-xl hover:opacity-60"
                 }`}
               />
             </button>
