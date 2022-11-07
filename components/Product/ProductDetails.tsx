@@ -23,7 +23,7 @@ export default function ProductDetails(props: ProductItemDetails): JSX.Element {
 
       <p
         id="product-description"
-        className="text-darkGrayishBlue text-[0.80em] md:text-[0.9em] lg:text-[1em]"
+        className="text-darkGrayishBlue dark:text-lightGray text-[0.80em] md:text-[0.9em] lg:text-[1em]"
       >
         {props.description}
       </p>

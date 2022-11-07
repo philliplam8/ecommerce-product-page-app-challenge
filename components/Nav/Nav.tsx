@@ -2,7 +2,7 @@ import { useState, useContext, useMemo } from "react";
 import { CartContext } from "../../context/CartContext";
 import Link from "next/link";
 import Image from "next/image";
-import { NavLinksDesktop, Hamburger, Avatar } from "./";
+import { NavLinksDesktop, Hamburger, Avatar, styles } from "./";
 import { ShoppingCart } from "../ShoppingCart";
 import { ShoppingCartButton } from "../Buttons/Buttons";
 
@@ -28,8 +28,8 @@ export default function Nav(): JSX.Element {
   }, [cart]);
 
   return (
-    <div className="max-w-[1180px] m-auto sticky top-0 flex flex-col z-20 bg-white">
-      <nav className="h-16 md:h-24 flex justify-between items-center border-b border-lightGray text-darkGrayishBlue px-8">
+    <div className="max-w-[1180px] m-auto sticky top-0 flex flex-col z-20 bg-white dark:bg-black">
+      <nav className="h-16 md:h-24 flex justify-between items-center border-b border-lightGray text-darkGrayishBlue dark:text-lightGrayishBlue px-8 mx-0 md:px-0 md:mx-8">
         <div className="h-full flex flex-row gap-4 items-center md:gap-14">
           <Hamburger
             showMenu={showMenu}
@@ -37,12 +37,13 @@ export default function Nav(): JSX.Element {
             onDivClick={handleMenuClick}
           />
           <Link href={"/"}>
-            <div className="w-[138px] h-full flex items-center border-b-4 border-white">
+            <div className="w-[138px] h-full flex items-center border-b-4 border-white dark:border-black">
               <Image
                 src={"/images/logo.svg"}
                 alt={"Sneakers Logo"}
                 width={138}
                 height={20}
+                className={styles.logo}
               />
             </div>
           </Link>

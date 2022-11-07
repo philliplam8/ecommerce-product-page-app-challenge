@@ -67,11 +67,11 @@ export default function Product(props: ProductItemDetails): JSX.Element {
         <div id="controls" className="flex flex-col sm:flex-row gap-4">
           <div
             id="quantity"
-            className="h-14 flex flex-row items-center justify-between rounded-lg bg-lightGrayishBlue"
+            className="h-14 flex flex-row items-center justify-between rounded-lg bg-lightGrayishBlue dark:bg-veryDarkBlue"
           >
             <DecrementButton handleDecrement={handleDecrement} />
 
-            <div className="px-[1.88em]">
+            <div className="w-[76px] flex justify-center">
               <p className="text-[1em] font-bold">{quantity}</p>
             </div>
 

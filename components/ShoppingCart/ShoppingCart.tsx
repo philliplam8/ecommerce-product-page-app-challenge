@@ -1,14 +1,15 @@
 import Image from "next/image";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { productImages } from "../../context/ModalContext";
 import { CartItemDetails } from "../Product/types";
 import { TrashButton } from "../Buttons";
 
 function EmptyCart(): JSX.Element {
   return (
     <div className="h-full w-full flex justify-center items-center py-24">
-      <h3 className="text-darkGrayishBlue">Your cart is empty.</h3>
+      <h3 className="text-darkGrayishBlue dark:text-lightGray">
+        Your cart is empty.
+      </h3>
     </div>
   );
 }
@@ -44,13 +45,13 @@ function CartItem(props: CartItemDetails): JSX.Element {
             className="rounded-[4px]"
           />
         </div>
-        <div className="flex flex-col text-darkGrayishBlue">
+        <div className="flex flex-col text-darkGrayishBlue dark:text-lightGray">
           <h3>{props.name}</h3>
           <div className="flex flex-row gap-2">
             <p>
               {discountedPrice} x {props.quantity}
             </p>
-            <p className="text-black font-bold">{finalPrice}</p>
+            <p className="text-black dark:text-white font-bold">{finalPrice}</p>
           </div>
         </div>
       </div>
@@ -89,9 +90,12 @@ export default function ShoppingCart(props: { status: boolean }): JSX.Element {
   const [cart, setCart] = useContext(CartContext);
 
   return (
-    <div className="w-full md:w-[350px] absolute top-20 md:right-0 md:px-0 px-2 sm:px-8">
+    <div
+      id="shopping-cart"
+      className="w-full md:w-[350px] absolute top-20 md:right-0 md:px-0 px-2 sm:px-8"
+    >
       <div
-        className={`h-full w-full flex-col font-bold text-sm shadow-2xl z-10 bg-white rounded-lg ${
+        className={`h-full w-full flex-col font-bold text-sm shadow-2xl z-10 dark:bg-veryDarkBlue bg-white rounded-lg ${
           props.status ? "flex" : "hidden"
         }`}
       >

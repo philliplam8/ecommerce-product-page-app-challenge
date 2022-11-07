@@ -130,7 +130,7 @@ export function ShoppingCartButton(props: {
           alt={props.showCart ? "Close Shopping Cart" : "Open Shopping Cart"}
           width={22}
           height={20}
-          className={`${props.showCart ? styles.filterActive : styles.filter}`}
+          className={`${props.showCart ? styles.cartActive : styles.cart}`}
         />
       </button>
     </div>

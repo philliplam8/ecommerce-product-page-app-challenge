@@ -10,7 +10,7 @@ export default function Hamburger(props: {
   showMenu: boolean;
 }): JSX.Element {
   return (
-    <div className="md:hidden bg-white z-40">
+    <div className="md:hidden bg-white dark:bg-black z-40">
       <button onClick={props.onButtonClick}>
         <Image
           src="/images/icon-menu.svg"
@@ -29,7 +29,7 @@ export default function Hamburger(props: {
       ></div>
 
       <div
-        className={`w-[300px] min-h-screen absolute top-0 left-0 flex flex-col justify-between px-8 py-6 bg-white z-50 ease-in-out duration-300 ${
+        className={`w-[300px] min-h-screen absolute top-0 left-0 flex flex-col justify-between px-8 py-6 bg-white dark:bg-black z-50 ease-in-out duration-300 ${
           props.showMenu ? "translate-x-0" : "-translate-x-full"
         }`}
       >
