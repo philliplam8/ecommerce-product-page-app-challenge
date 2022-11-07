@@ -9,7 +9,7 @@ export function PreviousButton(props: {
   return (
     <div className={`h-full flex items-center z-10 ${props.classStyle}`}>
       <button
-        className={`h-10 w-10 -mr-5 flex justify-center items-center bg-white rounded-3xl`}
+        className={`${styles.button} h-10 w-10 -mr-5 flex justify-center items-center bg-white rounded-3xl`}
         onClick={props.handleDecrement}
       >
         <Image
@@ -31,7 +31,7 @@ export function NextButton(props: {
   return (
     <div className={`h-full flex items-center z-10 ${props.classStyle}`}>
       <button
-        className="h-10 w-10 -ml-5 flex justify-center items-center bg-white rounded-3xl"
+        className={`${styles.button} h-10 w-10 -ml-5 flex justify-center items-center bg-white rounded-3xl`}
         onClick={props.handleIncrement}
       >
         <Image

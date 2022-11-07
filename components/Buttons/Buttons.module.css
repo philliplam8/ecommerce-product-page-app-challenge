@@ -1,3 +1,4 @@
+.button:hover .orangeHighlight,
 .orangeHighlight:hover,
 .orangeHighlight:active {
     filter: invert(72%) sepia(40%) saturate(7370%) hue-rotate(348deg) brightness(102%) contrast(101%);
