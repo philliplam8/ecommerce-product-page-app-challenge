@@ -14,9 +14,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    .cart {
-        filter: brightness(0) invert(1)
-    }
 
     .cart:hover,
     .cartActive:hover {
