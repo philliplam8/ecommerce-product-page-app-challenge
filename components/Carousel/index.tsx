@@ -1,3 +1,3 @@
 import Carousel from "./Carousel";
-
-export { Carousel };
+import carouselStyle from "./Carousel.module.css";
+export { Carousel, carouselStyle };

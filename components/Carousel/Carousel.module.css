@@ -1,0 +1,49 @@
+#carousel {
+    --verticalsm: 500px;
+}
+
+
+@media screen and (max-height: 590px) {
+    .modal {
+        position: relative;
+        height: 300px;
+        width: 300px;
+    }
+
+    .thumbnails {
+        flex-direction: column;
+    }
+
+    .horizontal {
+        display: none;
+    }
+
+    .horizontalClose {
+        display: none;
+    }
+
+    .vertical {
+        display: block;
+    }
+
+    @media screen and (max-width: 473px) {
+        .vertical {
+            display: none;
+        }
+    }
+}
+
+@media screen and (min-height: 590px) {
+
+    .horizontal {
+        display: block;
+    }
+
+    .horizontalClose {
+        display: flex;
+    }
+
+    .vertical {
+        display: none;
+    }
+}

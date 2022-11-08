@@ -4,6 +4,7 @@ import Image from "next/image";
 import { CloseButton, NextButton, PreviousButton, styles } from "../Buttons";
 import FocusTrap from "focus-trap-react";
 import { ModalBackdrop } from "../Overlay";
+import { carouselStyle } from "./";
 
 export default function Carousel(): JSX.Element {
   // First and last images from image array
@@ -64,13 +65,17 @@ export default function Carousel(): JSX.Element {
 
   function ThumbnailImages(): JSX.Element {
     return (
-      <div className={`flex flex-row justify-between`}>
+      <div
+        className={`flex justify-between ${
+          showModal && carouselStyle.thumbnails
+        }`}
+      >
         {productImages.map((image) => {
           return (
             <button
               key={image.thumbnail}
               onClick={() => handleCarouselChange(image.productId)}
-              className={`rounded-xl border-2  ${
+              className={`rounded-xl border-2 w-[92px]  ${
                 image.productId === currentImage
                   ? "border-orange bg-white"
                   : "border-transparent"
@@ -103,30 +108,32 @@ export default function Carousel(): JSX.Element {
   }, [showModal]);
 
   return (
-    <div
-      id="carousel"
-      className="h-full max-w-[541px] flex flex-col gap-7 mx-auto md:px-6"
-    >
-      <div className="relative flex flex-row items-center">
-        <PreviousButton
-          classStyle={"md:hidden absolute left-4"}
-          handleDecrement={handleCarouselDecrement}
-        />
-        <button onClick={handleModalOpen} className={``}>
-          <MainImage width={600} height={600} productId={currentImage} />
-        </button>
-        <NextButton
-          classStyle={"md:hidden absolute right-4"}
-          handleIncrement={handleCarouselIncrement}
-        />
-      </div>
-      <div className="hidden md:block">
-        <ThumbnailImages />
+    <>
+      <div
+        id="carousel-main"
+        className="max-w-[541px] h-full flex flex-col gap-7 mx-auto md:px-6"
+      >
+        <div className="relative flex flex-row items-center">
+          <PreviousButton
+            classStyle={"md:hidden absolute left-4"}
+            handleDecrement={handleCarouselDecrement}
+          />
+          <button onClick={handleModalOpen} className={``}>
+            <MainImage width={600} height={600} productId={currentImage} />
+          </button>
+          <NextButton
+            classStyle={"md:hidden absolute right-4"}
+            handleIncrement={handleCarouselIncrement}
+          />
+        </div>
+        <div className="hidden md:block">
+          <ThumbnailImages />
+        </div>
       </div>
 
       <FocusTrap active={showModal}>
         <div
-          id="modal"
+          id="carousel-modal"
           className={`z-40 ${
             !!showModal
               ? "absolute left-0 right-0 top-0 bottom-0 max-w-[607px] max-h-[607px] m-auto"
@@ -134,38 +141,61 @@ export default function Carousel(): JSX.Element {
           }`}
         >
           <div className="flex flex-col">
-            <div className="flex justify-end items-center mx-7 pb-5 z-50">
+            <div
+              className={`flex justify-end items-center mx-7 py-5 z-50 ${
+                showModal && carouselStyle.horizontalClose
+              }`}
+            >
               <CloseButton
                 handleClose={handleModalOpen}
                 classStyle={styles.close}
               />
             </div>
             <div className="flex flex-row justify-center items-center px-2 z-50">
+              <div
+                className={`py-9 px-2 z-50 ${
+                  showModal && carouselStyle.vertical
+                }`}
+              >
+                <ThumbnailImages />
+              </div>
               <PreviousButton
                 handleDecrement={handleCarouselDecrement}
                 classStyle={""}
               />
-              <div className="w-[607px]">
+              <div className="">
                 <Image
                   src={`/images/image-product-${currentImage}.jpg`}
                   alt={`Product Image ${currentImage}`}
                   width={600}
                   height={600}
-                  className={`rounded-xl`}
+                  className={`rounded-xl ${carouselStyle.modal}`}
                 />
               </div>
               <NextButton
                 handleIncrement={handleCarouselIncrement}
                 classStyle={""}
               />
+              <div
+                className={`${carouselStyle.vertical} relative -top-[136px]`}
+              >
+                <CloseButton
+                  handleClose={handleModalOpen}
+                  classStyle={styles.close}
+                />
+              </div>
             </div>
-            <div className="py-9 px-20 z-50">
+            <div
+              className={`py-9 px-20 z-50 ${
+                showModal && carouselStyle.horizontal
+              }`}
+            >
               <ThumbnailImages />
             </div>
           </div>
           <ModalBackdrop />
         </div>
       </FocusTrap>
-    </div>
+    </>
   );
 }
