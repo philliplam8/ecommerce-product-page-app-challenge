@@ -3,6 +3,7 @@ import { productImages, ModalContext } from "../../context/ModalContext";
 import Image from "next/image";
 import { CloseButton, NextButton, PreviousButton, styles } from "../Buttons";
 import FocusTrap from "focus-trap-react";
+import { ModalBackdrop } from "../Overlay";
 
 export default function Carousel(): JSX.Element {
   // First and last images from image array
@@ -133,13 +134,13 @@ export default function Carousel(): JSX.Element {
           }`}
         >
           <div className="flex flex-col">
-            <div className="flex justify-end items-center mx-7 pb-5">
+            <div className="flex justify-end items-center mx-7 pb-5 z-50">
               <CloseButton
                 handleClose={handleModalOpen}
                 classStyle={styles.close}
               />
             </div>
-            <div className="flex flex-row justify-center items-center px-2">
+            <div className="flex flex-row justify-center items-center px-2 z-50">
               <PreviousButton
                 handleDecrement={handleCarouselDecrement}
                 classStyle={""}
@@ -158,10 +159,11 @@ export default function Carousel(): JSX.Element {
                 classStyle={""}
               />
             </div>
-            <div className="py-9 px-20">
+            <div className="py-9 px-20 z-50">
               <ThumbnailImages />
             </div>
           </div>
+          <ModalBackdrop />
         </div>
       </FocusTrap>
     </div>
