@@ -104,17 +104,15 @@ export function TrashButton(props: {
   handleCartItemRemoval: MouseEventHandler<HTMLButtonElement>;
 }): JSX.Element {
   return (
-    <div className="h-[16px]">
-      <button onClick={props.handleCartItemRemoval}>
-        <Image
-          src={"/images/icon-delete.svg"}
-          alt={`Remove ${props.itemToRemove} from cart`}
-          width={14}
-          height={16}
-          className={styles.orangeHighlight}
-        />
-      </button>
-    </div>
+    <button onClick={props.handleCartItemRemoval}>
+      <Image
+        src={"/images/icon-delete.svg"}
+        alt={`Remove ${props.itemToRemove} from cart`}
+        width={14}
+        height={16}
+        className={styles.orangeHighlight}
+      />
+    </button>
   );
 }
 
@@ -123,16 +121,14 @@ export function ShoppingCartButton(props: {
   handleCartClick: MouseEventHandler<HTMLButtonElement>;
 }): JSX.Element {
   return (
-    <div className="h-[20px] w-[22px]">
-      <button onClick={props.handleCartClick}>
-        <Image
-          src={"/images/icon-cart.svg"}
-          alt={props.showCart ? "Close Shopping Cart" : "Open Shopping Cart"}
-          width={22}
-          height={20}
-          className={`${props.showCart ? styles.cartActive : styles.cart}`}
-        />
-      </button>
-    </div>
+    <button onClick={props.handleCartClick}>
+      <Image
+        src={"/images/icon-cart.svg"}
+        alt={props.showCart ? "Close Shopping Cart" : "Open Shopping Cart"}
+        width={22}
+        height={20}
+        className={`${props.showCart ? styles.cartActive : styles.cart}`}
+      />
+    </button>
   );
 }
