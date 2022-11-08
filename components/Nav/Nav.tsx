@@ -68,12 +68,11 @@ export default function Nav(): JSX.Element {
               showCart={showCart}
               handleCartClick={handleCartClick}
             />
+            <ShoppingCart status={showCart} />
           </div>
           <Avatar />
         </div>
       </nav>
-
-      <ShoppingCart status={showCart} />
     </div>
   );
 }
