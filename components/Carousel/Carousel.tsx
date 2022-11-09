@@ -132,14 +132,14 @@ export default function Carousel(): JSX.Element {
           id="carousel-modal"
           className={`z-40 ${
             !!showModal
-              ? "absolute left-0 right-0 top-0 bottom-0 max-w-[607px] vsm:max-h-[440px] vmd:max-h-[772px] mx-auto my-auto overflow-auto"
+              ? "absolute left-0 right-0 top-0 bottom-0 max-w-[607px] vsm:max-h-[440px] max-h-[772px] mx-auto my-auto overflow-auto"
               : "hidden"
           }`}
         >
           <div className={`flex flex-col vsm:flex-row-reverse`}>
             <div
               id="modal-close"
-              className={`flex vsm:mx-2 vmd:mx-7 py-5 z-50 vsm:items-start justify-end`}
+              className={`flex vsm:mx-2 mx-7 py-5 z-50 vsm:items-start justify-end`}
             >
               <CloseButton
                 handleClose={handleModalOpen}
@@ -172,7 +172,7 @@ export default function Carousel(): JSX.Element {
             </div>
             <div
               id="carousel-thumbnails"
-              className={`vsm:mx-2 vmd:mx-20 my-9 z-50`}
+              className={`vsm:mx-2 mx-20 my-9 z-50`}
             >
               <ThumbnailImages classStyle={`${showModal && "vsm:flex-col"}`} />
             </div>

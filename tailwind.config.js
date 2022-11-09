@@ -37,10 +37,7 @@ module.exports = {
 
       // Vertical Media Breakpoints for Mobile Landscape ------------
       'vsm': { 'raw': '(max-height: 800px) and (min-width: 640px)' },
-      // => @media (max-height: 800px) { ... }
-
-      'vmd': { 'raw': '(min-height: 800px)' },
-      // => @media (min-height: 800px) { ... }
+      // => @media (max-height: 800px) and (min-width: 640px) { ... }
     },
     extend: {},
   },
