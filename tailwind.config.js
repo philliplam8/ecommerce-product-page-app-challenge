@@ -19,7 +19,7 @@ module.exports = {
       "black": "hsl(0, 0%, 0%)"
     },
     screens: {
-      // horizontal
+      // Horizontal Media Breakpoints -------------------------------
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
@@ -35,7 +35,7 @@ module.exports = {
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
 
-      // vertical
+      // Vertical Media Breakpoints for Mobile Landscape ------------
       'vsm': { 'raw': '(max-height: 800px) and (min-width: 640px)' },
       // => @media (max-height: 800px) { ... }
 
