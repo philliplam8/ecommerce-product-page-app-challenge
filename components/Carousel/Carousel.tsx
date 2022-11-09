@@ -1,13 +1,13 @@
 import { useState, useContext, useEffect } from "react";
 import { productImages, ModalContext } from "../../context/ModalContext";
 import Image from "next/image";
+import FocusTrap from "focus-trap-react";
 import {
   CloseButton,
   NextButton,
   PreviousButton,
   buttonStyles,
 } from "../Buttons";
-import FocusTrap from "focus-trap-react";
 import { ModalBackdrop } from "../Overlay";
 
 export default function Carousel(): JSX.Element {
@@ -67,9 +67,9 @@ export default function Carousel(): JSX.Element {
     );
   }
 
-  function ThumbnailImages(): JSX.Element {
+  function ThumbnailImages(props: { classStyle?: string }): JSX.Element {
     return (
-      <div className={`flex justify-between ${showModal && "vsm:flex-col"}`}>
+      <div className={`flex justify-around ${props.classStyle}`}>
         {productImages.map((image) => {
           return (
             <button
@@ -99,16 +99,8 @@ export default function Carousel(): JSX.Element {
     );
   }
 
-  useEffect((): void => {
-    if (showModal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [showModal]);
-
-  return (
-    <>
+  function CarouselMain() {
+    return (
       <div
         id="carousel-main"
         className="max-w-[541px] h-full flex flex-col gap-7 mx-auto md:px-6"
@@ -130,20 +122,24 @@ export default function Carousel(): JSX.Element {
           <ThumbnailImages />
         </div>
       </div>
+    );
+  }
 
+  function CarouselModal() {
+    return (
       <FocusTrap active={showModal}>
         <div
           id="carousel-modal"
           className={`z-40 ${
             !!showModal
-              ? "absolute left-0 right-0 top-0 bottom-0 max-w-[607px] max-h-[607px] mx-auto"
+              ? "absolute left-0 right-0 top-0 bottom-0 max-w-[607px] vsm:max-h-[440px] vmd:max-h-[772px] mx-auto my-auto overflow-auto"
               : "hidden"
           }`}
         >
           <div className={`flex flex-col vsm:flex-row-reverse`}>
             <div
               id="modal-close"
-              className={`flex mx-7 py-5 z-50 vsm:items-start justify-end`}
+              className={`flex vsm:mx-2 vmd:mx-7 py-5 z-50 vsm:items-start justify-end`}
             >
               <CloseButton
                 handleClose={handleModalOpen}
@@ -153,13 +149,13 @@ export default function Carousel(): JSX.Element {
             <div className="flex flex-row justify-center items-center px-2 z-50">
               <div
                 id="modal-main-image"
-                className="flex flex-row justify-center items-center"
+                className="h-full flex flex-row justify-center items-center"
               >
                 <PreviousButton
                   handleDecrement={handleCarouselDecrement}
                   classStyle={""}
                 />
-                <div>
+                <div className="">
                   <Image
                     src={`/images/image-product-${currentImage}.jpg`}
                     alt={`Product Image ${currentImage}`}
@@ -174,13 +170,31 @@ export default function Carousel(): JSX.Element {
                 />
               </div>
             </div>
-            <div id="carousel-thumbnails" className={`py-9 px-20 z-50`}>
-              <ThumbnailImages />
+            <div
+              id="carousel-thumbnails"
+              className={`vsm:mx-2 vmd:mx-20 my-9 z-50`}
+            >
+              <ThumbnailImages classStyle={`${showModal && "vsm:flex-col"}`} />
             </div>
           </div>
           <ModalBackdrop />
         </div>
       </FocusTrap>
+    );
+  }
+
+  useEffect((): void => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [showModal]);
+
+  return (
+    <>
+      <CarouselMain />
+      <CarouselModal />
     </>
   );
 }
