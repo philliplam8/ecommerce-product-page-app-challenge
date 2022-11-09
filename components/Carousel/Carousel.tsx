@@ -1,10 +1,14 @@
 import { useState, useContext, useEffect } from "react";
 import { productImages, ModalContext } from "../../context/ModalContext";
 import Image from "next/image";
-import { CloseButton, NextButton, PreviousButton, styles } from "../Buttons";
+import {
+  CloseButton,
+  NextButton,
+  PreviousButton,
+  buttonStyles,
+} from "../Buttons";
 import FocusTrap from "focus-trap-react";
 import { ModalBackdrop } from "../Overlay";
-import { carouselStyle } from "./";
 
 export default function Carousel(): JSX.Element {
   // First and last images from image array
@@ -65,11 +69,7 @@ export default function Carousel(): JSX.Element {
 
   function ThumbnailImages(): JSX.Element {
     return (
-      <div
-        className={`flex justify-between ${
-          showModal && carouselStyle.thumbnails
-        }`}
-      >
+      <div className={`flex justify-between ${showModal && "vsm:flex-col"}`}>
         {productImages.map((image) => {
           return (
             <button
@@ -136,60 +136,45 @@ export default function Carousel(): JSX.Element {
           id="carousel-modal"
           className={`z-40 ${
             !!showModal
-              ? "absolute left-0 right-0 top-0 bottom-0 max-w-[607px] max-h-[607px] m-auto"
+              ? "absolute left-0 right-0 top-0 bottom-0 max-w-[607px] max-h-[607px] mx-auto"
               : "hidden"
           }`}
         >
-          <div className="flex flex-col">
+          <div className={`flex flex-col vsm:flex-row-reverse`}>
             <div
-              className={`flex justify-end items-center mx-7 py-5 z-50 ${
-                showModal && carouselStyle.horizontalClose
-              }`}
+              id="modal-close"
+              className={`flex mx-7 py-5 z-50 vsm:items-start justify-end`}
             >
               <CloseButton
                 handleClose={handleModalOpen}
-                classStyle={styles.close}
+                classStyle={buttonStyles.close}
               />
             </div>
             <div className="flex flex-row justify-center items-center px-2 z-50">
               <div
-                className={`py-9 px-2 z-50 ${
-                  showModal && carouselStyle.vertical
-                }`}
+                id="modal-main-image"
+                className="flex flex-row justify-center items-center"
               >
-                <ThumbnailImages />
-              </div>
-              <PreviousButton
-                handleDecrement={handleCarouselDecrement}
-                classStyle={""}
-              />
-              <div className="">
-                <Image
-                  src={`/images/image-product-${currentImage}.jpg`}
-                  alt={`Product Image ${currentImage}`}
-                  width={600}
-                  height={600}
-                  className={`rounded-xl ${carouselStyle.modal}`}
+                <PreviousButton
+                  handleDecrement={handleCarouselDecrement}
+                  classStyle={""}
                 />
-              </div>
-              <NextButton
-                handleIncrement={handleCarouselIncrement}
-                classStyle={""}
-              />
-              <div
-                className={`${carouselStyle.vertical} relative -top-[136px]`}
-              >
-                <CloseButton
-                  handleClose={handleModalOpen}
-                  classStyle={styles.close}
+                <div>
+                  <Image
+                    src={`/images/image-product-${currentImage}.jpg`}
+                    alt={`Product Image ${currentImage}`}
+                    width={600}
+                    height={600}
+                    className={`rounded-xl`}
+                  />
+                </div>
+                <NextButton
+                  handleIncrement={handleCarouselIncrement}
+                  classStyle={""}
                 />
               </div>
             </div>
-            <div
-              className={`py-9 px-20 z-50 ${
-                showModal && carouselStyle.horizontal
-              }`}
-            >
+            <div id="carousel-thumbnails" className={`py-9 px-20 z-50`}>
               <ThumbnailImages />
             </div>
           </div>

@@ -6,7 +6,7 @@ import {
   CloseButton,
   TrashButton,
 } from "./Buttons";
-import styles from "./Buttons.module.css";
+import buttonStyles from "./Buttons.module.css";
 
 export {
   NextButton,
@@ -15,5 +15,5 @@ export {
   DecrementButton,
   CloseButton,
   TrashButton,
-  styles,
+  buttonStyles,
 };

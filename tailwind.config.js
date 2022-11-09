@@ -18,6 +18,30 @@ module.exports = {
       "white": "hsl(0, 0%, 100%)",
       "black": "hsl(0, 0%, 0%)"
     },
+    screens: {
+      // horizontal
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+
+      // vertical
+      'vsm': { 'raw': '(max-height: 800px) and (min-width: 640px)' },
+      // => @media (max-height: 800px) { ... }
+
+      'vmd': { 'raw': '(min-height: 800px)' },
+      // => @media (min-height: 800px) { ... }
+    },
     extend: {},
   },
   plugins: [],

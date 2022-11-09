@@ -1,6 +1,6 @@
 import { MouseEventHandler } from "react";
 import Image from "next/image";
-import { styles } from "./";
+import { buttonStyles } from "./";
 
 export function PreviousButton(props: {
   classStyle?: string;
@@ -9,7 +9,7 @@ export function PreviousButton(props: {
   return (
     <div className={`h-full flex items-center z-10 ${props.classStyle}`}>
       <button
-        className={`${styles.button} h-10 w-10 -mr-5 flex justify-center items-center bg-white rounded-3xl`}
+        className={`${buttonStyles.button} h-10 w-10 -mr-5 flex justify-center items-center bg-white rounded-3xl`}
         onClick={props.handleDecrement}
       >
         <Image
@@ -17,7 +17,7 @@ export function PreviousButton(props: {
           alt={`Previous item`}
           width={9}
           height={9}
-          className={styles.orangeHighlight}
+          className={buttonStyles.orangeHighlight}
         />
       </button>
     </div>
@@ -31,7 +31,7 @@ export function NextButton(props: {
   return (
     <div className={`h-full flex items-center z-10 ${props.classStyle}`}>
       <button
-        className={`${styles.button} h-10 w-10 -ml-5 flex justify-center items-center bg-white rounded-3xl`}
+        className={`${buttonStyles.button} h-10 w-10 -ml-5 flex justify-center items-center bg-white rounded-3xl`}
         onClick={props.handleIncrement}
       >
         <Image
@@ -39,7 +39,7 @@ export function NextButton(props: {
           alt={`Next item`}
           width={10}
           height={9.5}
-          className={styles.orangeHighlight}
+          className={buttonStyles.orangeHighlight}
         />
       </button>
     </div>
@@ -93,7 +93,7 @@ export function CloseButton(props: {
         alt="Close button"
         width={16}
         height={15}
-        className={`${styles.orangeHighlight} ${props.classStyle}`}
+        className={`${buttonStyles.orangeHighlight} ${props.classStyle}`}
       />
     </button>
   );
@@ -110,7 +110,7 @@ export function TrashButton(props: {
         alt={`Remove ${props.itemToRemove} from cart`}
         width={14}
         height={16}
-        className={styles.orangeHighlight}
+        className={buttonStyles.orangeHighlight}
       />
     </button>
   );
@@ -127,7 +127,9 @@ export function ShoppingCartButton(props: {
         alt={props.showCart ? "Close Shopping Cart" : "Open Shopping Cart"}
         width={22}
         height={20}
-        className={`${props.showCart ? styles.cartActive : styles.cart}`}
+        className={`${
+          props.showCart ? buttonStyles.cartActive : buttonStyles.cart
+        }`}
       />
     </button>
   );
