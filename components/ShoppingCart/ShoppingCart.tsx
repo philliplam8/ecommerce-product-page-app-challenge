@@ -79,7 +79,7 @@ function NonEmptyCart(): JSX.Element {
           discountedPrice={cart[item].discountedPrice}
         />
       ))}
-      <button className="w-full h-14 my-2 rounded-lg text-white text-sm bg-orange">
+      <button className="w-full h-14 my-2 rounded-lg text-white text-sm bg-orange hover:bg-orange/[.7] hover:drop-shadow-[0_10px_10px_rgb(255,126,27,0.7)]">
         <h3>Checkout</h3>
       </button>
     </div>
@@ -92,7 +92,7 @@ export default function ShoppingCart(props: { status: boolean }): JSX.Element {
   return (
     <div
       id="shopping-cart"
-      className="w-full md:w-[350px] absolute top-20 right-0 md:px-0 px-2 sm:px-8"
+      className="w-full md:w-[350px] absolute top-20 right-0 md:px-0 px-2 sm:px-8 md:mr-2"
     >
       <div
         className={`h-full w-full flex-col font-bold text-sm shadow-2xl z-10 dark:bg-veryDarkBlue bg-white rounded-lg ${

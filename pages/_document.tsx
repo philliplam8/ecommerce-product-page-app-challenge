@@ -1,6 +1,7 @@
 // pages/_document.tsx
 
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
@@ -13,7 +14,8 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body>
+      <Script src="/darkMode.ts" />
+      <body className="light:bg-white light:text-black dark:bg-black dark:text-white">
         <Main />
         <NextScript />
       </body>

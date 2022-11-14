@@ -2,21 +2,29 @@ import { useState, useContext, useMemo } from "react";
 import { CartContext } from "../../context/CartContext";
 import Link from "next/link";
 import Image from "next/image";
-import { NavLinksDesktop, Hamburger, Avatar, styles } from "./";
+import { NavLinksDesktop, Hamburger, Avatar } from "./";
 import { ShoppingCart } from "../ShoppingCart";
 import { ShoppingCartButton } from "../Buttons/Buttons";
+import { DarkMenu } from "../DarkMenu";
 
 export default function Nav(): JSX.Element {
   const [cart, setCart] = useContext(CartContext);
   const [showMenu, setShowMenu] = useState(false);
   const [showCart, setshowCart] = useState(false);
+  const [showDarkMenu, setShowDarkMenu] = useState(false);
 
   const handleMenuClick = (): void => {
     setShowMenu(!showMenu);
   };
 
   const handleCartClick = (): void => {
+    setShowDarkMenu(false);
     setshowCart(!showCart);
+  };
+
+  const handleAvatarClick = (): void => {
+    setshowCart(false);
+    setShowDarkMenu(!showDarkMenu);
   };
 
   const cartAmount: number = useMemo(() => {
@@ -32,18 +40,19 @@ export default function Nav(): JSX.Element {
       <nav className="h-16 md:h-24 flex justify-between items-center border-b border-lightGray text-darkGrayishBlue dark:text-lightGrayishBlue px-8 mx-0 md:px-0 md:mx-8">
         <div className="h-full flex flex-row gap-4 items-center md:gap-14">
           <Hamburger
-            showMenu={showMenu}
             onButtonClick={handleMenuClick}
             onDivClick={handleMenuClick}
           />
           <Link href={"/"}>
-            <div className="w-[138px] h-full flex items-center border-b-4 border-white dark:border-black">
+            <div
+              className={`w-[138px] h-full flex items-center border-b-4 border-white dark:border-black`}
+            >
               <Image
                 src={"/images/logo.svg"}
                 alt={"Sneakers Logo"}
                 width={138}
                 height={20}
-                className={styles.logo}
+                className={"dark:invert"}
               />
             </div>
           </Link>
@@ -58,7 +67,7 @@ export default function Nav(): JSX.Element {
             {Object.keys(cart).length > 0 && (
               <div
                 id="cart-badge"
-                className="absolute mb-4 ml-2.5 px-[7px] py-[0.75px]  bg-orange text-white text-[0.5em] rounded-xl z-30"
+                className="absolute mb-4 ml-2.5 px-[7px] py-[0.75px] bg-orange text-white text-[0.5em] rounded-xl z-30"
               >
                 {cartAmount}
               </div>
@@ -70,7 +79,8 @@ export default function Nav(): JSX.Element {
             />
             <ShoppingCart status={showCart} />
           </div>
-          <Avatar />
+          <Avatar onButtonClick={handleAvatarClick} />
+          <DarkMenu status={showDarkMenu} />
         </div>
       </nav>
     </div>

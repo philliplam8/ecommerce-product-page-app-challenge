@@ -139,7 +139,7 @@ export default function Carousel(): JSX.Element {
           <div className={`flex flex-col vsm:flex-row-reverse`}>
             <div
               id="modal-close"
-              className={`flex vsm:mx-2 mx-7 py-5 z-50 vsm:items-start justify-end`}
+              className={`flex vsm:mx-2 mx-7 my-5 z-50 vsm:items-start justify-end`}
             >
               <CloseButton
                 handleClose={handleModalOpen}
@@ -149,13 +149,13 @@ export default function Carousel(): JSX.Element {
             <div className="flex flex-row justify-center items-center px-2 z-50">
               <div
                 id="modal-main-image"
-                className="h-full flex flex-row justify-center items-center"
+                className="flex flex-row justify-center items-center"
               >
                 <PreviousButton
                   handleDecrement={handleCarouselDecrement}
                   classStyle={""}
                 />
-                <div className="">
+                <div>
                   <Image
                     src={`/images/image-product-${currentImage}.jpg`}
                     alt={`Product Image ${currentImage}`}

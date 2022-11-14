@@ -10,7 +10,7 @@ export default function NavLink(props: NavItem): JSX.Element {
     <Link
       href={props.link}
       className={
-        "h-full flex items-center text-lg font-bold md:font-light md:text-sm border-b-4 border-white hover:border-orange hover:text-black dark:border-black dark:hover:text-white"
+        "h-full flex items-center text-lg font-bold md:font-light md:text-sm border-b-4 border-white hover:border-orange dark:hover:border-orange light:hover:text-black dark:border-black dark:hover:text-white"
       }
     >
       {props.label}

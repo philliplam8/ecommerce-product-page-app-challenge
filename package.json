@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.13",
     "focus-trap-react": "^10.0.0",
     "next": "13.0.0",
     "react": "18.2.0",
