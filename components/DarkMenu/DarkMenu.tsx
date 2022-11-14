@@ -81,7 +81,7 @@ export default function DarkMenu(props: { status: boolean }): JSX.Element {
   return (
     <div
       id="theme-menu"
-      className="w-full md:w-[150px] absolute top-20 right-0 md:px-0 px-2 sm:px-8"
+      className="w-full md:w-[120px] absolute top-20 right-0 md:px-0 px-2 sm:px-8 md:mr-2"
     >
       <div
         className={`h-full w-full flex-col font-bold text-sm shadow-2xl z-10 dark:bg-veryDarkBlue bg-white rounded-lg ${
