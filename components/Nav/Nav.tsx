@@ -80,7 +80,7 @@ export default function Nav(): JSX.Element {
             <ShoppingCart status={showCart} />
           </div>
           <Avatar onButtonClick={handleAvatarClick} />
-          <DarkMenu status={showDarkMenu} />
+          <DarkMenu status={showDarkMenu} handleClick={handleAvatarClick}/>
         </div>
       </nav>
     </div>

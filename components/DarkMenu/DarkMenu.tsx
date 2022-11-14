@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import { CheckIcon } from "@heroicons/react/24/solid";
 const THEME_OPTIONS = ["Light Mode", "Dark Mode", "Use System Preferences"];
 
-export default function DarkMenu(props: { status: boolean }): JSX.Element {
+export default function DarkMenu(props: {
+  status: boolean;
+  handleClick: void;
+}): JSX.Element {
   const [currentTheme, setCurrentTheme] = useState(THEME_OPTIONS[0]);
 
   /**
@@ -55,6 +58,7 @@ export default function DarkMenu(props: { status: boolean }): JSX.Element {
     if (typeof window === "undefined") {
       return;
     } else {
+      props.handleClick();
       switch (option) {
         // Use chooses Light Mode
         case "Light Mode":
