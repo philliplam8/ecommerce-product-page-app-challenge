@@ -42,6 +42,7 @@ export default function Drawer({
           alt="Open hamburger menu"
           width={16}
           height={15}
+          className={"hover:invert dark:hover:brightness-0"}
         />
       </button>
 
