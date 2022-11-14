@@ -2,10 +2,9 @@ import { useState, useContext, useMemo } from "react";
 import { CartContext } from "../../context/CartContext";
 import Link from "next/link";
 import Image from "next/image";
-import { NavLinksDesktop, Hamburger, Avatar, styles } from "./";
+import { NavLinksDesktop, Hamburger, Avatar } from "./";
 import { ShoppingCart } from "../ShoppingCart";
 import { ShoppingCartButton } from "../Buttons/Buttons";
-import { Drawer } from "../Drawer";
 import { DarkMenu } from "../DarkMenu";
 
 export default function Nav(): JSX.Element {
@@ -45,13 +44,15 @@ export default function Nav(): JSX.Element {
             onDivClick={handleMenuClick}
           />
           <Link href={"/"}>
-            <div className="w-[138px] h-full flex items-center border-b-4 border-white dark:border-black">
+            <div
+              className={`w-[138px] h-full flex items-center border-b-4 border-white dark:border-black`}
+            >
               <Image
                 src={"/images/logo.svg"}
                 alt={"Sneakers Logo"}
                 width={138}
                 height={20}
-                className={styles.logo}
+                className={"dark:invert"}
               />
             </div>
           </Link>

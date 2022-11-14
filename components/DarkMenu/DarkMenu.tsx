@@ -12,7 +12,7 @@ export default function DarkMenu(props: { status: boolean }): JSX.Element {
   function Option(props: { label: string }): JSX.Element {
     return (
       <button
-        className="text-left text-xs font-light border-b-2 border-white hover:border-orange dark:hover:border-orange light:hover:text-black dark:border-veryDarkBlue dark:hover:text-white"
+        className="text-left text-sm font-bold border-b-2 border-white hover:border-orange dark:hover:border-orange light:hover:text-black dark:border-veryDarkBlue dark:hover:text-white"
         aria-label={props.label}
         onClick={() => handleOptionClick(props.label)}
       >
