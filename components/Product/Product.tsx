@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { NavContext } from "../../context/NavContext";
 import { productImages } from "../../context/ModalContext";
 import Image from "next/image";
 import { ProductDetails, styles } from "./";
@@ -9,7 +9,8 @@ import { IncrementButton, DecrementButton } from "../Buttons";
 
 export default function Product(props: ProductItemDetails): JSX.Element {
   const [quantity, setQuantity] = useState(0);
-  const [cart, setCart] = useContext(CartContext);
+  const { cartValue } = useContext(NavContext);
+  const [cart, setCart] = cartValue;
 
   const resetQuantity = (): void => {
     setQuantity(0);

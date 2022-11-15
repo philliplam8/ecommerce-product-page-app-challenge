@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { NavContext } from "../../context/NavContext";
 import { CartItemDetails } from "../Product/types";
 import { TrashButton } from "../Buttons";
 
@@ -15,7 +15,8 @@ function EmptyCart(): JSX.Element {
 }
 
 function CartItem(props: CartItemDetails): JSX.Element {
-  const [cart, setCart] = useContext(CartContext);
+  const { cartValue } = useContext(NavContext);
+  const [cart, setCart] = cartValue;
 
   // Format discounted price
   const discountedPrice: string = `$${props.discountedPrice.toFixed(2)}`;
@@ -64,7 +65,8 @@ function CartItem(props: CartItemDetails): JSX.Element {
 }
 
 function NonEmptyCart(): JSX.Element {
-  const [cart, setCart] = useContext(CartContext);
+  const { cartValue } = useContext(NavContext);
+  const [cart, setCart] = cartValue;
 
   return (
     <div className="h-full w-full flex flex-col gap-4 justify-center items-center px-6 py-6">
@@ -87,7 +89,8 @@ function NonEmptyCart(): JSX.Element {
 }
 
 export default function ShoppingCart(props: { status: boolean }): JSX.Element {
-  const [cart, setCart] = useContext(CartContext);
+  const { cartValue } = useContext(NavContext);
+  const [cart, setCart] = cartValue;
 
   return (
     <div
