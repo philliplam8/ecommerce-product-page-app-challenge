@@ -128,7 +128,9 @@ export function ShoppingCartButton(props: {
         width={22}
         height={20}
         className={`${
-          props.showCart ? buttonStyles.cartActive : buttonStyles.cart
+          props.showCart
+            ? `${buttonStyles.cartActive} dark:brightness-0 dark:invert`
+            : buttonStyles.cartInactive
         }`}
       />
     </button>
