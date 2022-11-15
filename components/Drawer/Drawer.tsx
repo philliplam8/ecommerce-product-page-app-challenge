@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { NavContext } from "../../context/NavContext";
 import Image from "next/image";
 import { CloseButton } from "../Buttons";
 
@@ -11,12 +12,14 @@ export default function Drawer({
   direction,
   children,
 }: DrawerProps): JSX.Element {
-  const [showMenu, setShowMenu] = useState(false);
+  const { menuValue } = useContext(NavContext);
+  const [showMenu, setShowMenu] = menuValue;
+
   const handleMenuClick = (): void => {
     setShowMenu(!showMenu);
   };
 
-  const translate = () => {
+  const animateMenu = () => {
     const leftMenu = {
       open: "translate-x-0",
       close: "-translate-x-full",
@@ -57,7 +60,7 @@ export default function Drawer({
       <div
         className={`w-[300px] min-h-screen h-full absolute top-0 px-8 py-6 bg-white dark:bg-black z-50 ease-in-out duration-300 
         ${direction === "left" ? "left-0" : "right-0"}
-        ${showMenu ? translate().open : translate().close}
+        ${showMenu ? animateMenu().open : animateMenu().close}
         `}
       >
         <div className={showMenu ? "h-full flex flex-col gap-12" : "hidden"}>

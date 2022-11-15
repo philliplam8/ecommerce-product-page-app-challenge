@@ -1,5 +1,5 @@
 import { useState, useContext, useMemo } from "react";
-import { CartContext } from "../../context/CartContext";
+import { NavContext } from "../../context/NavContext";
 import Link from "next/link";
 import Image from "next/image";
 import { NavLinksDesktop, Hamburger, Avatar } from "./";
@@ -8,14 +8,10 @@ import { ShoppingCartButton } from "../Buttons/Buttons";
 import { DarkMenu } from "../DarkMenu";
 
 export default function Nav(): JSX.Element {
-  const [cart, setCart] = useContext(CartContext);
-  const [showMenu, setShowMenu] = useState(false);
+  const { cartValue } = useContext(NavContext);
+  const [cart, setCart] = cartValue;
   const [showCart, setshowCart] = useState(false);
   const [showDarkMenu, setShowDarkMenu] = useState(false);
-
-  const handleMenuClick = (): void => {
-    setShowMenu(!showMenu);
-  };
 
   const handleCartClick = (): void => {
     setShowDarkMenu(false);
@@ -39,10 +35,7 @@ export default function Nav(): JSX.Element {
     <div className="max-w-[1180px] m-auto sticky top-0 flex flex-col z-20 bg-white dark:bg-black">
       <nav className="h-16 md:h-24 flex justify-between items-center border-b border-lightGray text-darkGrayishBlue dark:text-lightGrayishBlue px-8 mx-0 md:px-0 md:mx-8">
         <div className="h-full flex flex-row gap-4 items-center md:gap-14">
-          <Hamburger
-            onButtonClick={handleMenuClick}
-            onDivClick={handleMenuClick}
-          />
+          <Hamburger />
           <Link href={"/"}>
             <div
               className={`w-[138px] h-full flex items-center border-b-4 border-white dark:border-black`}
@@ -80,7 +73,7 @@ export default function Nav(): JSX.Element {
             <ShoppingCart status={showCart} />
           </div>
           <Avatar onButtonClick={handleAvatarClick} />
-          <DarkMenu status={showDarkMenu} handleClick={handleAvatarClick}/>
+          <DarkMenu status={showDarkMenu} handleClick={handleAvatarClick} />
         </div>
       </nav>
     </div>

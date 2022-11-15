@@ -4,12 +4,12 @@ export const NavContext = createContext();
 
 export const NavProvider = (props) => {
     const [cart, setCart] = useState({});
-    const [menu, showMenu] = useState(false);
+    const [menu, setShowMenu] = useState(false);
 
     return (
         <NavContext.Provider value={{
             cartValue: [cart, setCart],
-            menuValue: [menu, showMenu]
+            menuValue: [menu, setShowMenu]
         }}>
             {props.children}
         </NavContext.Provider>
