@@ -14,7 +14,6 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <Script src="/darkMode.ts" />
       <body className="light:bg-white light:text-black dark:bg-black dark:text-white">
         <Main />
         <NextScript />
