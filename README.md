@@ -30,15 +30,35 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+#### General
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+<img src='./public/demo/Desktop.png' alt="demo screenshot desktop" width='500'>
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
+<img src='./public/demo/Mobile.png' alt="demo screenshot mobile" width='300'>
 
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
+#### Carousel & Modal
 
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+<img src='./public/demo/Desktop-Modal.png' alt="demo screenshot desktop modal" width='500'>
+
+<img src='./public/demo/Mobile-Modal.png' alt="demo screenshot desktop modal" width='300'>
+
+<img src='./public/demo/Mobile-ModalLandscape.png' alt="demo screenshot desktop modal" width='300'>
+
+#### Shopping Cart
+
+<img src='./public/demo/Desktop-Cart.png' alt="demo screenshot desktop shopping cart" width='500'><img src='./public/demo/Desktop-CartEmpty.png' alt="demo screenshot desktop shopping cart empty" width='500'>
+
+<img src='./public/demo/Mobile-Cart.png' alt="demo screenshot mobile shopping cart" width='300'>
+
+#### Hamburger Menu
+
+<img src='./public/demo/Mobile-HamburgerMenu.png' alt="demo screenshot desktop modal" width='300'>
+
+#### (Extra) Dark Mode Theme Menu
+
+<img src='./public/demo/Desktop-ThemeMenu.png' alt="demo screenshot desktop modal" width='500'><img src='./public/demo/DesktopDark-ThemeMenu.png' alt="demo screenshot desktop modal" width='500'>
+
+<img src='./public/demo/Mobile-ThemeMenu.png' alt="demo screenshot desktop modal" width='300'><img src='./public/demo/MobileDark-ThemeMenu.png' alt="demo screenshot desktop modal" width='300'><img src='./public/demo/MobileDark.png' alt="demo screenshot desktop modal" width='300'>
 
 ### Links
 
@@ -70,7 +90,7 @@ import { NavLinksDesktop, Hamburger, Avatar } from "./";
 
 I will continue to use this index file method for future projects that have many components.
 
-Another minor tad bit of insight that I learned from this project involves styling SVG files. As I was getting used to using the usually Tailwind classNames `bg-` or `text-` prefixes to quickly style and colour a component, I hit a roadblock when trying this on SVG elements. SVG components behave differently and can be styled by applying a [filter](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter)
+Another minor tad bit of insight that I learned from this project involves styling SVG files. As I was getting used to using the usual Tailwind classNames `bg-` or `text-` prefixes to quickly style and colour a component, I hit a roadblock when trying this on SVG elements. SVG components behave differently and can be styled by applying a [filter](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter)
 
 ### Continued development
 
