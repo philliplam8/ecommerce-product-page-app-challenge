@@ -1,12 +1,28 @@
 import { useState, useEffect } from "react";
-import { CheckIcon } from "@heroicons/react/24/solid";
+import {
+  SunIcon,
+  MoonIcon,
+  ComputerDesktopIcon,
+} from "@heroicons/react/24/outline";
+
 const THEME_OPTIONS = ["Light Mode", "Dark Mode", "Use System Preferences"];
 
 export default function DarkMenu(props: {
   handleClick: () => void;
   status: any;
 }): JSX.Element {
-  const [currentTheme, setCurrentTheme] = useState(THEME_OPTIONS[0]);
+  const [currentTheme, setCurrentTheme] = useState(THEME_OPTIONS[2]);
+
+  function OptionIcon(props: { option: string }) {
+    switch (props.option) {
+      case THEME_OPTIONS[0]:
+        return <SunIcon />;
+      case THEME_OPTIONS[1]:
+        return <MoonIcon />;
+      default:
+        return <ComputerDesktopIcon />;
+    }
+  }
 
   /**
    * A Theme Mode option for the user. The user can switch between using
@@ -17,17 +33,27 @@ export default function DarkMenu(props: {
   function Option(props: { label: string }): JSX.Element {
     return (
       <button
-        className="text-left text-sm font-bold border-b-2 border-white hover:border-orange dark:hover:border-orange light:hover:text-black dark:border-veryDarkBlue dark:hover:text-white"
+        className="text-left text-sm font-bold  light:hover:text-black dark:hover:text-white "
         aria-label={props.label}
         onClick={() => handleOptionClick(props.label)}
       >
         <div className="flex flex-row gap-2 justify-start items-center">
-          <h3>{props.label}</h3>
-          <CheckIcon
-            className={`h-3 w-3 ${
-              props.label === currentTheme ? "visible" : "invisible"
+          <div
+            id="option-icon"
+            className={`h-5 w-5 ${
+              props.label === currentTheme ? "text-orange" : ""
             }`}
-          />
+          >
+            <OptionIcon option={props.label} />
+          </div>
+          <h3
+            id="option-label"
+            className={`w-full border-b-2 border-white dark:border-veryDarkBlue hover:border-orange dark:hover:border-orange ${
+              props.label === currentTheme ? "text-orange" : ""
+            }`}
+          >
+            {props.label}
+          </h3>
         </div>
       </button>
     );
