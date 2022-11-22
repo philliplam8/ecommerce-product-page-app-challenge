@@ -34,10 +34,10 @@ export default function DarkMenu(props: {
   function Option(props: { label: string }): JSX.Element {
     return (
       <div
+        tabIndex={0}
         className={`text-left text-sm font-bold light:hover:text-black dark:hover:text-white ${
           props.label === currentTheme ? "text-orange" : ""
         }`}
-        aria-label={props.label}
         onClick={() => handleOptionClick(props.label)}
       >
         <div className="flex flex-row gap-2 justify-start items-center">
