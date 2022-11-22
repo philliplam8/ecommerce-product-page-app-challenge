@@ -82,7 +82,7 @@ function NonEmptyCart(): JSX.Element {
         />
       ))}
       <button className="w-full h-14 my-2 rounded-lg text-white text-sm bg-orange hover:bg-orange/[.7] hover:drop-shadow-[0_10px_10px_rgb(255,126,27,0.7)]">
-        <h3>Checkout</h3>
+        Checkout
       </button>
     </div>
   );
