@@ -10,9 +10,13 @@ type LayoutProps = {
 export default function Layout({ children }: LayoutProps): JSX.Element {
   return (
     <>
-      <Nav />
-      <main className="max-w-[1180px] m-auto">{children}</main>
-      <Footer />
+      <div className="min-h-screen h-full flex flex-col justify-between">
+        <div>
+          <Nav />
+          <main className="max-w-[1180px] m-auto">{children}</main>
+        </div>
+        <Footer />
+      </div>
     </>
   );
 }
