@@ -33,30 +33,29 @@ export default function DarkMenu(props: {
    */
   function Option(props: { label: string }): JSX.Element {
     return (
-      <button
-        className="text-left text-sm font-bold  light:hover:text-black dark:hover:text-white "
+      <div
+        className={`text-left text-sm font-bold light:hover:text-black dark:hover:text-white ${
+          props.label === currentTheme ? "text-orange" : ""
+        }`}
         aria-label={props.label}
         onClick={() => handleOptionClick(props.label)}
       >
         <div className="flex flex-row gap-2 justify-start items-center">
           <div
             id={`option-icon-${formatId(props.label)}`}
-            className={`h-5 w-5 ${
-              props.label === currentTheme ? "text-orange" : ""
-            }`}
+            className={`h-5 w-5`}
           >
             <OptionIcon option={props.label} />
           </div>
+
           <h3
             id={`option-label-${formatId(props.label)}`}
-            className={`w-full border-b-2 border-white dark:border-veryDarkBlue hover:border-orange dark:hover:border-orange ${
-              props.label === currentTheme ? "text-orange" : ""
-            }`}
+            className={`w-full border-b-2 border-white dark:border-veryDarkBlue hover:border-orange dark:hover:border-orange`}
           >
             {props.label}
           </h3>
         </div>
-      </button>
+      </div>
     );
   }
 
