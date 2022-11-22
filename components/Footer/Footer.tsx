@@ -9,7 +9,7 @@ function Link(props: LinkProps): JSX.Element {
       href={props.link}
       target="_blank"
       rel="noreferrer"
-      className="font-bold text-black hover:text-orange hover:underline active:text-orange active:underline"
+      className="font-bold text-black dark:text-white dark:hover:text-orange hover:text-orange hover:underline active:text-orange active:underline"
     >
       {props.label}
     </a>
@@ -18,7 +18,7 @@ function Link(props: LinkProps): JSX.Element {
 
 export default function Footer(): JSX.Element {
   return (
-    <footer className="flex flex-row justify-center py-5 text-xs text-darkGrayishBlue">
+    <footer className="flex flex-row justify-center py-5 text-xs text-darkGrayishBlue dark:text-grayishBlue">
       <p>
         Challenge by{" "}
         <Link
