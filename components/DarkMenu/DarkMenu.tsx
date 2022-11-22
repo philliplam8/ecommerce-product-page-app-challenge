@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { formatId } from "../../helpers";
 import {
   SunIcon,
   MoonIcon,
@@ -39,7 +40,7 @@ export default function DarkMenu(props: {
       >
         <div className="flex flex-row gap-2 justify-start items-center">
           <div
-            id="option-icon"
+            id={`option-icon-${formatId(props.label)}`}
             className={`h-5 w-5 ${
               props.label === currentTheme ? "text-orange" : ""
             }`}
@@ -47,7 +48,7 @@ export default function DarkMenu(props: {
             <OptionIcon option={props.label} />
           </div>
           <h3
-            id="option-label"
+            id={`option-label-${formatId(props.label)}`}
             className={`w-full border-b-2 border-white dark:border-veryDarkBlue hover:border-orange dark:hover:border-orange ${
               props.label === currentTheme ? "text-orange" : ""
             }`}
