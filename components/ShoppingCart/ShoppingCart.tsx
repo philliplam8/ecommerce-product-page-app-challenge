@@ -1,4 +1,4 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 import { useContext } from "react";
 import { NavContext } from "../../context/NavContext";
 import { CartItemDetails } from "../Product/types";
@@ -38,7 +38,7 @@ function CartItem(props: CartItemDetails): JSX.Element {
     <div className="w-full flex flex-row gap-2 justify-between items-center font-medium">
       <div className="flex flex-row gap-2">
         <div>
-          <Image
+          <img
             src={props.image}
             width={50}
             height={50}

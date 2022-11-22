@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import { MouseEventHandler } from "react";
-import Image from "next/image";
 import { buttonStyles } from "./";
 
 export function PreviousButton(props: {
@@ -12,7 +12,7 @@ export function PreviousButton(props: {
         className={`${buttonStyles.button} h-10 w-10 -mr-5 flex justify-center items-center bg-white rounded-3xl`}
         onClick={props.handleDecrement}
       >
-        <Image
+        <img
           src={"/images/icon-previous.svg"}
           alt={`Previous item`}
           width={9}
@@ -34,7 +34,7 @@ export function NextButton(props: {
         className={`${buttonStyles.button} h-10 w-10 -ml-5 flex justify-center items-center bg-white rounded-3xl`}
         onClick={props.handleIncrement}
       >
-        <Image
+        <img
           src={"/images/icon-next.svg"}
           alt={`Next item`}
           width={10}
@@ -54,7 +54,7 @@ export function DecrementButton(props: {
       className="w-[44px] h-[44px] flex justify-center items-center"
       onClick={props.handleDecrement}
     >
-      <Image
+      <img
         src={"/images/icon-minus.svg"}
         alt={"Decrement quantity"}
         width={12}
@@ -72,7 +72,7 @@ export function IncrementButton(props: {
       className="w-[44px] h-[44px] flex justify-center items-center"
       onClick={props.handleIncrement}
     >
-      <Image
+      <img
         src={"/images/icon-plus.svg"}
         alt={"Increment quantity"}
         width={12}
@@ -88,7 +88,7 @@ export function CloseButton(props: {
 }): JSX.Element {
   return (
     <button className="w-[16px]" onClick={props.handleClose}>
-      <Image
+      <img
         src="/images/icon-close.svg"
         alt="Close button"
         width={16}
@@ -105,7 +105,7 @@ export function TrashButton(props: {
 }): JSX.Element {
   return (
     <button onClick={props.handleCartItemRemoval}>
-      <Image
+      <img
         src={"/images/icon-delete.svg"}
         alt={`Remove ${props.itemToRemove} from cart`}
         width={14}
@@ -122,7 +122,7 @@ export function ShoppingCartButton(props: {
 }): JSX.Element {
   return (
     <button onClick={props.handleCartClick}>
-      <Image
+      <img
         src={"/images/icon-cart.svg"}
         alt={props.showCart ? "Close Shopping Cart" : "Open Shopping Cart"}
         width={22}

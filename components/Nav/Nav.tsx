@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState, useContext, useMemo } from "react";
 import { NavContext } from "../../context/NavContext";
 import Link from "next/link";
-import Image from "next/image";
+
 import { NavLinksDesktop, Hamburger, Avatar } from "./";
 import { ShoppingCart } from "../ShoppingCart";
 import { ShoppingCartButton } from "../Buttons/Buttons";
@@ -40,7 +41,7 @@ export default function Nav(): JSX.Element {
             <div
               className={`w-[138px] h-full flex items-center border-b-4 border-white dark:border-black`}
             >
-              <Image
+              <img
                 src={"/images/logo.svg"}
                 alt={"Sneakers Logo"}
                 width={138}

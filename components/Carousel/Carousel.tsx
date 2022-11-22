@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState, useContext, useEffect } from "react";
 import { productImages, ModalContext } from "../../context/ModalContext";
-import Image from "next/image";
+
 import FocusTrap from "focus-trap-react";
 import {
   CloseButton,
@@ -57,7 +58,7 @@ export default function Carousel(): JSX.Element {
     productId: number;
   }): JSX.Element {
     return (
-      <Image
+      <img
         src={`/images/image-product-${props.productId}.jpg`}
         alt={`Product Image ${props.productId}`}
         width={props.width}
@@ -81,7 +82,7 @@ export default function Carousel(): JSX.Element {
                   : "border-transparent"
               }`}
             >
-              <Image
+              <img
                 src={image.thumbnail}
                 alt={`Product Image ${image.productId} Thumbnail`}
                 width={92}
@@ -156,7 +157,7 @@ export default function Carousel(): JSX.Element {
                   classStyle={""}
                 />
                 <div>
-                  <Image
+                  <img
                     src={`/images/image-product-${currentImage}.jpg`}
                     alt={`Product Image ${currentImage}`}
                     width={600}

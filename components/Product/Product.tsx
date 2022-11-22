@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState, useContext } from "react";
 import { NavContext } from "../../context/NavContext";
 import { productImages } from "../../context/ModalContext";
-import Image from "next/image";
+
 import { ProductDetails, styles } from "./";
 import { CartItemDetails, ProductItemDetails } from "./types";
 import { Carousel } from "../Carousel";
@@ -84,7 +85,7 @@ export default function Product(props: ProductItemDetails): JSX.Element {
             className="w-full sm:max-w-[19.4em] h-14 flex justify-center items-center gap-4 bg-orange rounded-lg text-white text-sm font-bold hover:bg-orange/[.7] hover:drop-shadow-[0_10px_10px_rgb(255,126,27,0.7)]"
             onClick={handleAddShoppingCart}
           >
-            <Image
+            <img
               src={"/images/icon-cart.svg"}
               alt={"Add to Shopping Cart"}
               width={18}

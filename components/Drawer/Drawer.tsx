@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { useContext } from "react";
 import { NavContext } from "../../context/NavContext";
-import Image from "next/image";
+
 import { CloseButton } from "../Buttons";
 
 type DrawerProps = {
@@ -40,7 +41,7 @@ export default function Drawer({
   return (
     <>
       <button onClick={handleMenuClick}>
-        <Image
+        <img
           src="/images/icon-menu.svg"
           alt="Open hamburger menu"
           width={16}

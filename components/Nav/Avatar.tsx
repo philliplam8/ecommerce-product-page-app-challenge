@@ -1,4 +1,4 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 import { MouseEventHandler } from "react";
 
 export default function Avatar(props: {
@@ -12,7 +12,7 @@ export default function Avatar(props: {
         }
         onClick={props.onButtonClick}
       >
-        <Image
+        <img
           src={"/images/image-avatar.png"}
           alt={"Avatar Image"}
           width={50}
