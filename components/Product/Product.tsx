@@ -91,7 +91,7 @@ export default function Product(props: ProductItemDetails): JSX.Element {
               height={18}
               className={styles.shoppingCart}
             />
-            <h3>Add to cart</h3>
+            Add to cart
           </button>
         </div>
       </div>
