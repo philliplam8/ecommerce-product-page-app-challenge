@@ -38,7 +38,7 @@ export function NextButton(props: {
           src={"/images/icon-next.svg"}
           alt={`Next item`}
           width={10}
-          height={9.5}
+          height={10}
           className={buttonStyles.orangeHighlight}
         />
       </button>
